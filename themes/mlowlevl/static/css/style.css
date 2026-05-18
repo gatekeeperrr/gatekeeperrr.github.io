@@ -35,10 +35,10 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 
 /* HOME */
 .home-block{margin-bottom:36px;}
-.pager{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);}
-.pager-btn{font-size:13px;color:var(--muted);transition:color .15s;font-family:'Inter',sans-serif;user-select:none;}
-.pager-btn:hover{color:var(--link-hover);}
-.pager-info{font-size:12px;color:#444;}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--border);}
+.pager-btn{font-size:13px;color:var(--text);font-family:'Inter',sans-serif;user-select:none;padding:6px 14px;border:1px solid var(--border);border-radius:4px;background:#2e3236;transition:color .15s,border-color .15s,background .15s;}
+.pager-btn:hover{color:var(--link-hover);border-color:var(--link-hover);background:#333a42;}
+.pager-info{font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;}
 
 /* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
