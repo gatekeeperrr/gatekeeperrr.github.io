@@ -1,6 +1,6 @@
 ---
 title: "What is libc, GOT and PLT?"
-date: 2026-05.10
+date: 2026-05-10
 description: "Explaining libc, GOT, and PLT and how attackers exploit them for ROP."
 ---
 
