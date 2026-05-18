@@ -1,6 +1,6 @@
 ---
 title: "Clutter-overflow - picoCTF (pwn, Medium)"
-date: 2026-05-18
+date: 2026-04.12
 description: "picoCTF medium pwn challenge — stack buffer overflow to overwrite a local variable."
 ---
 
