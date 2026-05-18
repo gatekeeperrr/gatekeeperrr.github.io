@@ -1,6 +1,6 @@
 ---
 title: "Heap 0 - picoCTF (pwn, Easy)"
-date: 2026-05-18
+date: 2026-04-08
 description: "picoCTF easy pwn challenge — introduction to heap buffer overflows."
 ---
 
