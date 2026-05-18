@@ -1,7 +1,7 @@
 ---
 title: "you-know-0xdiablos - HackTheBox (pwn, Easy)"
 date: 2026-05-10
-description: "HackTheBox easy pwn challenge — ret2win with stack-based buffer overflow and parameter passing."
+description: "HackTheBox easy pwn challenge - ret2win with stack-based buffer overflow and parameter passing."
 ---
 
 ## Initial Recon
