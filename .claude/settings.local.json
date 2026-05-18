@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(hugo version *)",
-      "Bash(apt-cache show *)",
-      "Bash(hugo *)"
-    ]
-  }
-}
