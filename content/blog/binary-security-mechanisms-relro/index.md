@@ -1,6 +1,6 @@
 ---
 title: "Binary Security Mechanisms: RELRO"
-date: 2026-04-28
+date: 2026-05-17
 description: "A breakdown of RELRO, what it does, and how it can be bypassed."
 ---
 
