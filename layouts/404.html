@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{- partial "head.html" . -}}</head>
+<body>
+{{- partial "nav.html" . -}}
+<div class="page-layout">
+  <div class="paper">
+    <div class="content">
+      <div class="md-reader">
+        <div class="md-reader-header">
+          <div class="md-reader-title">404</div>
+          <div class="md-reader-meta">
+            <span class="md-reader-byline">page not found</span>
+          </div>
+        </div>
+        <div class="md">
+          <p>This page does not exist.</p>
+          <p><a href="/">← go home</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{- partial "footer.html" . -}}
+<script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>
