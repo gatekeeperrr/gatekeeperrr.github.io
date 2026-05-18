@@ -1,7 +1,7 @@
 ---
 title: "Control Hijack - pwn.college (pwn, Hard)"
-date: 2026-05-10
-description: "pwn.college hard challenge — stack-based buffer overflow and control flow hijacking."
+date: 2026-03-12
+description: "pwn.college hard challenge - stack-based buffer overflow and control flow hijacking."
 ---
 
 ## Task
