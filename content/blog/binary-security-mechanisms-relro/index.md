@@ -19,7 +19,7 @@ As you can see, checksec shows 5 key security mechanisms:
 - **PIE**
 - **RPATH/RUNPATH**
 
-(there are more, but these are the 5 most important ones I will discuss in this article.)
+(there are more, but these are the 5 most important ones I will discuss in this series of articles.)
 
 I will cover each of them in separate articles, this one focuses on **RELRO**.
 
