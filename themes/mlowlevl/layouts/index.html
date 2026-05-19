@@ -10,7 +10,7 @@
     {{ range $paginator.Pages }}
       {{- $thumb := .Resources.GetMatch "thumbnail*" -}}
       {{- $category := .Section -}}
-      {{- if eq .Section "writeups" -}}{{- $category = .Parent.Slug -}}{{- end -}}
+      {{- if eq .Section "writeups" -}}{{- $category = "writeup" -}}{{- end -}}
       <a class="card" href="{{ .RelPermalink }}">
         {{ if $thumb }}
         <img class="card-thumb" src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
