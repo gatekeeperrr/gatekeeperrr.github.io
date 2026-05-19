@@ -54,10 +54,10 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 .view-all{font-size:12px;color:#555;cursor:pointer;transition:color .15s;font-family:'Inter',sans-serif;letter-spacing:0;}
 .view-all:hover{color:var(--link-hover);}
 .home-block{margin-bottom:36px;}
-.pager{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border);}
-.pager-btn{font-size:13px;color:var(--muted);cursor:pointer;transition:color .15s;font-family:'Inter',sans-serif;user-select:none;}
-.pager-btn:hover{color:var(--link-hover);}
-.pager-info{font-size:12px;color:#444;}
+.pager{display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--border);}
+.pager-btn{font-size:13px;color:var(--text);cursor:pointer;transition:color .15s,border-color .15s,background .15s;font-family:'Inter',sans-serif;user-select:none;padding:7px 16px;border:1px solid #3a3a3a;border-radius:4px;background:#1e2022;text-decoration:none;display:inline-block;letter-spacing:0.02em;}
+.pager-btn:hover{color:var(--link-hover);border-color:var(--link-hover);}
+.pager-info{font-size:13px;color:var(--muted);font-weight:500;letter-spacing:0.04em;}
 
 /* CARDS */
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;}
@@ -436,6 +436,13 @@ let blogLoaded=false;
 let _fromPopstate=false;
 const writeupDates={};
 const writeupExcerpts={};
+const writeupReadTimes={};
+
+function calcReadTime(md){
+  const stripped=md.replace(/---[\s\S]*?---/,'').replace(/```[\s\S]*?```/g,'').replace(/[#*`_[\]()!>|~]/g,'').trim();
+  const words=stripped.split(/\s+/).filter(w=>w.length>0).length;
+  return Math.max(1,Math.round(words/200))+' min read';
+}
 
 function short(text,max=88){
   if(!text) return '';
@@ -460,15 +467,24 @@ function parseWriteupExcerpt(md){
 }
 
 async function getWriteupExcerpt(path){
-  const key=`wexc_${path}`;
-  const cached=cacheGet(key);
-  if(cached!==null){writeupExcerpts[path]=cached;return cached;}
+  const excKey=`wexc_${path}`;
+  const rtKey=`wrt_${path}`;
+  const cachedExc=cacheGet(excKey);
+  const cachedRt=cacheGet(rtKey);
+  if(cachedExc!==null){
+    writeupExcerpts[path]=cachedExc;
+    if(cachedRt!==null) writeupReadTimes[path]=cachedRt;
+    return cachedExc;
+  }
   try{
     const res=await fetch(`https://raw.githubusercontent.com/${USER}/${REPO}/main/${path}`);
     const md=await res.text();
     const exc=parseWriteupExcerpt(md);
-    cacheSet(key,exc);
+    const rt=calcReadTime(md);
+    cacheSet(excKey,exc);
+    cacheSet(rtKey,rt);
     writeupExcerpts[path]=exc;
+    writeupReadTimes[path]=rt;
     return exc;
   }catch(_){return '';}
 }
@@ -660,11 +676,11 @@ let latestAll=[];
 function buildLatestAll(){
   const all=[];
   blogPosts.forEach((post,i)=>{
-    all.push({thumb:getBlogThumbUrl(post.path),label:'blog',title:post.title,meta:post.date,excerpt:post.excerpt||'',onclick:`openBlogPost(${i})`});
+    all.push({thumb:getBlogThumbUrl(post.path),label:'blog',title:post.title,meta:post.date,readTime:post.readTime||'',excerpt:post.excerpt||'',onclick:`openBlogPost(${i})`});
   });
   files.forEach((f,i)=>{
     const lbl=getCategory(f.path);
-    all.push({thumb:getThumbUrl(f.path),label:lbl.text,title:getFolderName(f.path).replace(/_/g,' '),meta:writeupDates[f.path]||'',excerpt:writeupExcerpts[f.path]||'',onclick:`openFile(${i})`});
+    all.push({thumb:getThumbUrl(f.path),label:'writeup · '+lbl.text,title:getFolderName(f.path).replace(/_/g,' '),meta:writeupDates[f.path]||'',readTime:writeupReadTimes[f.path]||'',excerpt:writeupExcerpts[f.path]||'',onclick:`openFile(${i})`});
   });
   all.sort((a,b)=>{
     if(a.meta&&b.meta) return b.meta.localeCompare(a.meta);
@@ -695,7 +711,7 @@ function renderLatestPage(){
   grid.innerHTML=items.map(item=>`<div class="card" onclick="${item.onclick}">
     <img class="card-thumb" src="${item.thumb}" onerror="this.style.display='none';">
     <div class="card-body">
-      <div class="card-eyebrow">${item.label}${item.meta?' · '+item.meta:''}</div>
+      <div class="card-eyebrow">${item.label}${item.meta?' · '+item.meta:''}${item.readTime?' · '+item.readTime:''}</div>
       <div class="card-title">${item.title}</div>
       ${item.excerpt?`<div class="card-excerpt">${short(item.excerpt)}</div>`:''}
     </div>
@@ -706,7 +722,7 @@ function renderLatestPage(){
   pager.innerHTML=`
     ${latestPage>0?`<span class="pager-btn" onclick="latestPage--;renderLatestPage()">← prev</span>`:'<span></span>'}
     <span class="pager-info">${latestPage+1} / ${pages}</span>
-    ${latestPage+1<pages?`<span class="pager-btn" onclick="latestPage++;renderLatestPage()">next →</span>`:'<span></span>'}
+    ${latestPage+1<pages?`<span class="pager-btn" onclick="latestPage++;renderLatestPage()">next →</span>`:'<span style="display:inline-block;padding:7px 16px;"></span>'}
   `;
 }
 
@@ -788,7 +804,7 @@ function render(){
       return `<div class="writeup-card" onclick="openFile(${files.indexOf(f)})">
         <img class="writeup-thumb" src="${thumb}" onerror="this.style.display='none';">
         <div class="writeup-body">
-          <div class="writeup-eyebrow">${lbl.text}${writeupDates[f.path]?' · '+writeupDates[f.path]:''}</div>
+          <div class="writeup-eyebrow">writeup · ${lbl.text}${writeupDates[f.path]?' · '+writeupDates[f.path]:''}${writeupReadTimes[f.path]?' · '+writeupReadTimes[f.path]:''}</div>
           <div class="writeup-title">${name.replace(/_/g,' ')}</div>
         </div>
       </div>`;
@@ -863,7 +879,8 @@ function parseBlogMeta(path, md){
   }
   if(!title) title = formatBlogTitle(path);
   if(!excerpt) excerpt = 'read the full post on GitHub';
-  return {path, title, date, excerpt};
+  const readTime = md ? calcReadTime(md) : '';
+  return {path, title, date, excerpt, readTime};
 }
 
 
@@ -878,7 +895,7 @@ function renderBlogList(){
     return `<div class="card" onclick="openBlogPost(${idx})">
       <img class="card-thumb" src="${thumb}" onerror="this.style.display='none';">
       <div class="card-body">
-        <div class="card-eyebrow">blog${post.date?' · '+post.date:''}</div>
+        <div class="card-eyebrow">blog${post.date?' · '+post.date:''}${post.readTime?' · '+post.readTime:''}</div>
         <div class="card-title">${post.title}</div>
         ${post.excerpt?`<div class="card-excerpt">${post.excerpt}</div>`:''}
       </div>
@@ -940,8 +957,9 @@ async function openBlogPost(i){
     md = md.replace(/!\[([^\]]*)\]\((?!https?:\/\/)([^)]+)\)/g,(_,alt,src)=>{
       return `![${alt}](${rawBase}${src})`;
     });
+    const blogRt = calcReadTime(md);
     document.getElementById('blog-title').textContent = post.title;
-    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">mlowlevl${post.date?' · '+post.date:''}</span>`;
+    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">mlowlevl${post.date?' · '+post.date:''}${blogRt?' · '+blogRt:''}</span>`;
     if(typeof marked !== 'undefined'){
       marked.setOptions({breaks:true});
       document.getElementById('blog-content').innerHTML = marked.parse(md);
@@ -953,6 +971,7 @@ async function openBlogPost(i){
     document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">mlowlevl${post.date?' · '+post.date:''}</span>`;
     document.getElementById('blog-content').textContent = 'could not load this blog post.';
   }
+
   document.getElementById('blog-list').style.display = 'none';
   document.getElementById('blog-detail-view').style.display = 'block';
   blogDetailOpen = true;
@@ -992,9 +1011,12 @@ async function openFile(i){
   const catEl=document.getElementById('wr-cat');
   catEl.textContent=lbl.text;
   catEl.className='md-reader-cat '+lbl.cls;
-  document.getElementById('wr-date').textContent='';
+  const wrRt=calcReadTime(md);
+  document.getElementById('wr-date').textContent=wrRt?' · '+wrRt:'';
   getWriteupCommitDate(f.path).then(date=>{
-    if(date) document.getElementById('wr-date').textContent=' · '+date;
+    const datePart=date?' · '+date:'';
+    const rtPart=wrRt?' · '+wrRt:'';
+    document.getElementById('wr-date').textContent=datePart+rtPart;
   });
 
   document.getElementById('list-view').style.display='none';
