@@ -60,9 +60,6 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 .writeup-eyebrow{font-size:11px;color:#666;letter-spacing:0.05em;text-transform:uppercase;font-weight:500;margin-bottom:7px;}
 .writeup-title{font-size:17px;font-weight:500;color:var(--text);word-break:break-word;line-height:1.4;transition:color .15s;}
 .writeup-card:hover .writeup-title{color:var(--link-hover);}
-.writeup-tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;}
-.tag-badge{font-size:10px;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;color:#6683ae;background:rgba(102,131,174,0.12);border:1px solid rgba(102,131,174,0.25);border-radius:3px;padding:2px 7px;}
-
 /* BLOG */
 .blog-item{border-bottom:1px solid var(--border);padding:22px 0;}
 .blog-item:last-child{border-bottom:none;}
