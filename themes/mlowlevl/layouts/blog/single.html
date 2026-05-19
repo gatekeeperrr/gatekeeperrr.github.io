@@ -4,7 +4,7 @@
   <div class="md-reader-header">
     <div class="md-reader-title">{{ .Title }}</div>
     <div class="md-reader-meta">
-      <span class="md-reader-byline">{{ site.Title }}{{ if .Date }} · {{ .Date.Format "2006-01-02" }}{{ end }}</span>
+      <span class="md-reader-byline">{{ site.Title }}{{ if .Date }} · {{ .Date.Format "2006-01-02" }}{{ end }} · {{ .ReadingTime }} min read</span>
     </div>
   </div>
   <div class="md">{{ .Content }}</div>

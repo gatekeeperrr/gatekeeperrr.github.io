@@ -9,16 +9,23 @@
     <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlowlevl.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Binary Security Mechanisms: PIE &#43; ASLR</title>
+      <link>https://mlowlevl.xyz/blog/binary-security-mechanisms-pie-aslr/</link>
+      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlowlevl.xyz/blog/binary-security-mechanisms-pie-aslr/</guid>
+      <description>In the previous article we covered RELRO. This time we&amp;rsquo;ll look at two mechanisms that are closely related: PIE and ASLR. If you haven&amp;rsquo;t read the RELRO article before you can find it here: RELRO Article . As mentioned in my last post, I’m starting a series of articles on my blog about binary security mechanisms and how to bypass them.&#xA;I will cover each of them in separate articles, this one focuses on PIE &amp;amp; ASLR.</description>
+    </item>
+    <item>
       <title>Binary Security Mechanisms: RELRO</title>
       <link>https://mlowlevl.xyz/blog/binary-security-mechanisms-relro/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
       <guid>https://mlowlevl.xyz/blog/binary-security-mechanisms-relro/</guid>
-      <description>While doing a CTF today, I used my tool tio as usual to check the binary&amp;rsquo;s security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.&#xA;(checksec output from the CTF I participated in)&#xA;As you can see, checksec shows 5 key security mechanisms:&#xA;RELRO STACK CANARY NX PIE RPATH/RUNPATH (there are more, but these are the 5 most important ones I will discuss in this article.</description>
+      <description>While doing a CTF today, I used my tool tio as usual to check the binary&amp;rsquo;s security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.&#xA;(checksec output from the CTF I participated in)&#xA;As you can see, checksec shows 5 key security mechanisms:&#xA;RELRO STACK CANARY NX PIE RPATH/RUNPATH (there are more, but these are the 5 most important ones I will discuss in this series of articles.</description>
     </item>
     <item>
       <title>What is libc, GOT and PLT?</title>
       <link>https://mlowlevl.xyz/blog/what-is-plt-libc-got-blog-post/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
       <guid>https://mlowlevl.xyz/blog/what-is-plt-libc-got-blog-post/</guid>
       <description>PLT, GOT and libc are three common concepts every C/C++ programmer works with, but not every programmer is familiar with it so I thought I’d do a small post explaining it. I also will give a simple example how Hackers use libc or the GOT to exploit programs with bad security.&#xA;libc is the standard c library used by almost every C/C++ program on Linux. Its a collection of predefined functions such as printf ,puts ,mallocor fgets.</description>
     </item>

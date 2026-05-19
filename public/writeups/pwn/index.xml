@@ -6,35 +6,35 @@
     <description>Recent content in Pwn on mlowlevl</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlowlevl.xyz/writeups/pwn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>you-know-0xdiablos - HackTheBox (pwn, Easy)</title>
+      <link>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</link>
+      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</guid>
+      <description>Initial Recon First I ran my tool tio to get some basic information about the program.&#xA;After that I started the program to see what happens.&#xA;The program starts with a simple banner (You know who are 0xDiablos) and an input field. When you type something into the input field, it just gets echoed back.&#xA;Source Code Analysis Since no source code was provided, I tried to disassemble the program in Ghidra.</description>
+    </item>
+    <item>
+      <title>Heap 0 - picoCTF (pwn, Easy)</title>
+      <link>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</link>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</guid>
+      <description>Task Are overflows just a stack concern? Download the binary here. Download the source here. Additional details will be available after launching your challenge instance. Author: Abrxs, pr1or1tyQ&#xA;Initial Recon First i started the program to get a overview on whats going on:&#xA;Welcome to heap0! I put my data on the heap so it should be safe from any tampering. Since my data isn&amp;#39;t on the stack I&amp;#39;ll even let you write whatever info you want to the heap, I already took care of using malloc for you.</description>
+    </item>
     <item>
       <title>Clutter-overflow - picoCTF (pwn, Medium)</title>
       <link>https://mlowlevl.xyz/writeups/pwn/clutter-overflow-picoctf/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://mlowlevl.xyz/writeups/pwn/clutter-overflow-picoctf/</guid>
       <description>Task -Clutter, clutter everywhere and not a byte to use. -No Hints&#xA;Source Code #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #define SIZE 256 #define GOAL 0xdeadbeef int main(void) { long code = 0; char clutter[SIZE]; setbuf(stdout, NULL); setbuf(stdin, NULL); setbuf(stderr, NULL); puts(&amp;#34;My room is so cluttered...&amp;#34;); puts(&amp;#34;What do you see?&amp;#34;); gets(clutter); if (code == GOAL) { printf(&amp;#34;code == 0x%llx: how did that happen??\n&amp;#34;, GOAL); puts(&amp;#34;take a flag for your troubles&amp;#34;); system(&amp;#34;cat flag.txt&amp;#34;); } else { printf(&amp;#34;code == 0x%llx\n&amp;#34;, code); printf(&amp;#34;code !</description>
     </item>
     <item>
       <title>Control Hijack - pwn.college (pwn, Hard)</title>
       <link>https://mlowlevl.xyz/writeups/pwn/control-hijack-hard-pwn-college/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://mlowlevl.xyz/writeups/pwn/control-hijack-hard-pwn-college/</guid>
       <description>Task Overflow a buffer and smash the stack to obtain the flag!&#xA;Approach Unfortunately I can’t show the exact exploit details due to pwn.college rules, but I still want to share my general approach and thoughts.&#xA;My first step was running the program to understand its behavior. I noticed that the input was not properly limited, which indicated a potential buffer overflow vulnerability.&#xA;After that, I opened the binary in GDB to analyze what was happening internally.</description>
-    </item>
-    <item>
-      <title>Heap 0 - picoCTF (pwn, Easy)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</guid>
-      <description>Task Are overflows just a stack concern? Download the binary here. Download the source here. Additional details will be available after launching your challenge instance. Author: Abrxs, pr1or1tyQ&#xA;Initial Recon First i started the program to get a overview on whats going on:&#xA;Welcome to heap0! I put my data on the heap so it should be safe from any tampering. Since my data isn&amp;#39;t on the stack I&amp;#39;ll even let you write whatever info you want to the heap, I already took care of using malloc for you.</description>
-    </item>
-    <item>
-      <title>you-know-0xdiablos - HackTheBox (pwn, Easy)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</guid>
-      <description>Initial Recon First I ran my tool tio to get some basic information about the program.&#xA;After that I started the program to see what happens.&#xA;The program starts with a simple banner (You know who are 0xDiablos) and an input field. When you type something into the input field, it just gets echoed back.&#xA;Source Code Analysis Since no source code was provided, I tried to disassemble the program in Ghidra.</description>
     </item>
   </channel>
 </rss>

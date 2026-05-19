@@ -16,8 +16,9 @@
       <img class="writeup-thumb" src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
       {{ end }}
       <div class="writeup-body">
-        <div class="writeup-eyebrow">{{ $.Section }}{{ if .Date }} · {{ .Date.Format "2006-01-02" }}{{ end }}</div>
+        <div class="writeup-eyebrow">{{ $.Section }}{{ if .Date }} · {{ .Date.Format "2006-01-02" }}{{ end }} · {{ .ReadingTime }} min read</div>
         <div class="writeup-title">{{ .Title }}</div>
+        <div class="writeup-tags"><span class="tag-badge">writeup</span></div>
       </div>
     </a>
   {{ else }}
