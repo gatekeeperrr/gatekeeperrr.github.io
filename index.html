@@ -1,13 +1,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>mlowlevl</title>
+<title>pr1meM</title>
 <meta name="description" content="Security research, CTF writeups and blog posts on pwn, malware analysis and osint.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mlowlevl.xyz">
-<meta property="og:title" content="mlowlevl">
+<meta property="og:title" content="pr1meM">
 <meta property="og:description" content="Security research, CTF writeups and blog posts on pwn, malware analysis and osint.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mlowlevl">
+<meta name="twitter:title" content="pr1meM">
 <meta name="twitter:description" content="Security research, CTF writeups and blog posts on pwn, malware analysis and osint.">
 <link rel="canonical" href="https://mlowlevl.xyz">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23202024'/><text x='16' y='22' text-anchor='middle' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%23c6c6c6'>m</text></svg>">
@@ -254,7 +254,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 <div class="nav">
   <div class="logo-wrap">
     <div class="logo-row">
-      <div class="logo" onclick="show('home')">mlowlevl</div>
+      <div class="logo" onclick="show('home')">pr1meM</div>
       <div class="socials">
         <a href="https://github.com/ml0w6c65766c" target="_blank">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
@@ -320,7 +320,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
             <div class="md-reader-title" id="wr-title"></div>
             <div class="md-reader-meta">
               <span class="md-reader-cat" id="wr-cat"></span>
-              <span class="md-reader-byline">mlowlevl<span id="wr-date"></span></span>
+              <span class="md-reader-byline">pr1meM<span id="wr-date"></span></span>
             </div>
           </div>
           <div id="wr-content" class="md"></div>
@@ -397,7 +397,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="footer-name">mlowlevl</div>
+      <div class="footer-name">pr1meM</div>
       <div class="footer-copy">© 2026 · ctf / pwn / malware-analysis</div>
     </div>
     <div class="footer-links">
@@ -490,7 +490,7 @@ async function getWriteupExcerpt(path){
 }
 
 const PAGE_PATHS={home:'/',writeups:'/writeups',blog:'/blog',tools:'/tools',links:'/links'};
-const BASE_TITLE='mlowlevl';
+const BASE_TITLE='pr1meM';
 function setPath(path){
   if(_fromPopstate||location.pathname===path) return;
   history.pushState(null,'',path);
@@ -949,7 +949,7 @@ async function openBlogPost(i){
   const post = blogPosts[i];
   if(!post) return;
   setPath('/b/'+encodeURIComponent(post.path));
-  document.title = post.title+' — mlowlevl';
+  document.title = post.title+' — pr1meM';
   const rawBase = `https://raw.githubusercontent.com/${BLOG_USER}/${BLOG_REPO}/main/${post.path.replace(/[^/]+\.md$/,'')}`;
   try{
     const res = await fetch(`https://raw.githubusercontent.com/${BLOG_USER}/${BLOG_REPO}/main/${post.path}`);
@@ -959,7 +959,7 @@ async function openBlogPost(i){
     });
     const blogRt = calcReadTime(md);
     document.getElementById('blog-title').textContent = post.title;
-    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">mlowlevl${post.date?' · '+post.date:''}${blogRt?' · '+blogRt:''}</span>`;
+    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">pr1meM${post.date?' · '+post.date:''}${blogRt?' · '+blogRt:''}</span>`;
     if(typeof marked !== 'undefined'){
       marked.setOptions({breaks:true});
       document.getElementById('blog-content').innerHTML = marked.parse(md);
@@ -968,7 +968,7 @@ async function openBlogPost(i){
     }
   }catch(e){
     document.getElementById('blog-title').textContent = post.title;
-    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">mlowlevl${post.date?' · '+post.date:''}</span>`;
+    document.getElementById('blog-meta').innerHTML = `<span class="md-reader-byline">pr1meM${post.date?' · '+post.date:''}</span>`;
     document.getElementById('blog-content').textContent = 'could not load this blog post.';
   }
 
@@ -993,7 +993,7 @@ function closeBlogDetail(){
 async function openFile(i){
   const f=files[i];
   setPath('/w/'+encodeURIComponent(getFolderName(f.path)));
-  document.title = getFolderName(f.path).replace(/_/g,' ')+' — mlowlevl';
+  document.title = getFolderName(f.path).replace(/_/g,' ')+' — pr1meM';
   // build raw URL — images in same folder should resolve relative to this
   const rawBase=`https://raw.githubusercontent.com/${USER}/${REPO}/main/${f.path.replace(/[^/]+\.md$/,'')}`;
   const res=await fetch(`https://raw.githubusercontent.com/${USER}/${REPO}/main/${f.path}`);

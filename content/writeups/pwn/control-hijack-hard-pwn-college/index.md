@@ -75,4 +75,4 @@ After applying the concept and running the exploit, the program execution was su
 `pwn.college{REDACTED}`
 
 ---
-Author: ml0w6c65766c
+Author: pr1meM

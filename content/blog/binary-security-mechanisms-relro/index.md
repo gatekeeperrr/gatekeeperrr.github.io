@@ -54,7 +54,7 @@ Therefore, with `%n` you can directly overwrite a GOT entry. For example, if you
 
 
 
-Author: ml0w6c65766c
+Author: pr1meM
 
 
 

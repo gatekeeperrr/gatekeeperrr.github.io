@@ -52,4 +52,4 @@ Here is an simplified example(no real addresses):
 - Return Adress location = RBP + return adress offset 
 - `0x54650 + 0x05350 = 0x56000`
 
-Author: ml0w6c65766c
+Author: pr1meM

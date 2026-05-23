@@ -1,7 +1,7 @@
 baseURL = 'https://mlowlevl.xyz/'
 languageCode = 'en-us'
-title = 'mlowlevl'
-theme = 'mlowlevl'
+title = 'pr1meM'
+theme = 'pr1meM'
 
 [markup]
   [markup.goldmark.renderer]

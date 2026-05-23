@@ -51,4 +51,4 @@ system("/bin/sh")
 This works because the string `"/bin/sh` also exists inside libs. By controlling the instruction pointer and setting up the correct arguments, attackers can redirect execution into libc and spawn a shell.
 
 ---
-Author: ml0w6c65766c
+Author: pr1meM
