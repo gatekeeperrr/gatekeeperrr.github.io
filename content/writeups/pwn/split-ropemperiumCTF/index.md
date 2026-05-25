@@ -13,14 +13,14 @@ Find them and recombine them using a short ROP chain.
 
 As always, I started by using my tool, TIO, to get some basic information about the binary.
 
-![[Pasted image 20260525090744.png]]
+![checksec output](checksec.png)
 
 There is no stack canary, which means a potential buffer overflow would be easy to exploit. Additionally, there is no PIE, which means all addresses in the binary are fixed. However, NX is enabled, which means we cannot execute shellcode on the stack.
 
 
 Next, i started the program to see what happens.
 
-![[Pasted image 20260525091151.png]]
+![binary running](run.png)
 
 As you can see, the program has a simple input field, when you type something in it, the program says `Thank you` and exits.
 
@@ -29,7 +29,7 @@ As you can see, the program has a simple input field, when you type something in
 Since there was no stack canary, I assumed it was probably a buffer overflow in the program.
 So i generated a random non-repetetive string in pwndbg with `cyclic 200`. 
 
-![[Pasted image 20260525092724.png]]
+![cyclic overflow segfault](cyclic-overflow.png)
 
 And yes, as you can see, the program caused a segmentation fault. That means the return address was overwritten with my junk data. Now we can copy the RIP value and use `cyclic - l [rip]`. Then we have the offset from our input to the return address.
 In my case, the offset was `40`.
@@ -129,6 +129,6 @@ p.interactive()
 ```
 
 And we finally got our flag:
-![[Pasted image 20260525103227.png]]
+![flag](flag.png)
 
 Author: pr1meM
