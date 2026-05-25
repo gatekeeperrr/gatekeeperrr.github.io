@@ -1,3 +1,8 @@
+---
+title: "Split - ROP Emporium"
+date: 2026-05-25
+description: "ROP Emporium pwn challenge - exploiting using a short ROP chain."
+---
 
 ## Task
 
