@@ -18,9 +18,9 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Security research, CTF writeups and blog posts on pwn, malware analysis and osint."
   tagline = "ctf / pwn / malware-analysis"
-  github = "https://github.com/ml0w6c65766c"
+  github = "https://github.com/pr1meM"
   threads = "https://www.threads.net/@mlowlevl"
-  giscusRepo       = "ml0w6c65766c/blog_comments"
+  giscusRepo       = "pr1meM/blog_comments"
   giscusRepoId     = "R_kgDOSfPezw"
   giscusCategory   = "General"
   giscusCategoryId = "DIC_kwDOSfPez84C9L2H"
