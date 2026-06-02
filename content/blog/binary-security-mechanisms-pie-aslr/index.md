@@ -5,7 +5,7 @@ description: "A breakdown of PIE + ASLR, what they do, how they're connected, an
 ---
 
 In the previous article we covered RELRO. This time we'll look at two mechanisms that are closely related: PIE and ASLR. If you haven't read the RELRO article before you can find it here: 
-[RELRO Article](https://mlowlevl.xyz/blog/binary-security-mechanisms-relro/) .
+[RELRO Article](https://pr1mem.xyz/blog/binary-security-mechanisms-relro/) .
 As mentioned in my last post, I’m starting a series of articles on my blog about binary security mechanisms and how to bypass them.
 
 I will cover each of them in separate articles, this one focuses on **PIE & ASLR**.

@@ -1,4 +1,4 @@
-baseURL = 'https://mlowlevl.xyz/'
+baseURL = 'https://pr1mem.xyz/'
 languageCode = 'en-us'
 title = 'pr1meM'
 theme = 'pr1meM'
@@ -19,7 +19,7 @@ disableKinds = ["taxonomy", "term"]
   description = "Security research, CTF writeups and blog posts on pwn, malware analysis and osint."
   tagline = "ctf / pwn / rev"
   github = "https://github.com/pr1meM"
-  threads = "https://www.threads.net/@mlowlevl"
+  threads = "https://www.threads.net/@Pr1meM"
   giscusRepo       = "pr1meM/blog_comments"
   giscusRepoId     = "R_kgDOSfPezw"
   giscusCategory   = "General"
