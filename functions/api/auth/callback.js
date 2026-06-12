@@ -34,6 +34,7 @@ export async function onRequestGet({ request, env }) {
   }
 
   const token = JSON.stringify(data.access_token);
+  const siteOrigin = JSON.stringify(new URL(request.url).origin);
   const html = `<!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"><title>Authorizing…</title></head>
@@ -41,15 +42,17 @@ export async function onRequestGet({ request, env }) {
 <script>
 (function () {
   var token = ${token};
+  var origin = ${siteOrigin};
   var provider = "github";
   function receive(e) {
+    if (e.origin !== origin) return;
     window.opener.postMessage(
       "authorization:" + provider + ":success:" + JSON.stringify({ token: token, provider: provider }),
-      e.origin
+      origin
     );
   }
   window.addEventListener("message", receive, false);
-  window.opener.postMessage("authorizing:" + provider, "*");
+  window.opener.postMessage("authorizing:" + provider, origin);
 })();
 </script>
 </body>
