@@ -88,13 +88,18 @@
       #nc-root [class*="Card"],
       #nc-root [class*="card"],
       #nc-root [class*="Panel"],
-      #nc-root [class*="panel"],
+      #nc-root [class*="panel"] {
+        background: var(--bg2) !important;
+        border-color: var(--bd) !important;
+      }
+      /* Big layout wrappers: keep them transparent so they don't paint
+         a gray slab on top of the page background */
       #nc-root [class*="Pane"],
       #nc-root [class*="pane"],
       #nc-root [class*="Wrapper"],
       #nc-root [class*="Container"],
       #nc-root [class*="Sidebar"] {
-        background: var(--bg2) !important;
+        background: transparent !important;
         border-color: var(--bd) !important;
       }
       #nc-root [class*="Card"]:hover,
@@ -330,6 +335,14 @@
 
       /* ── Flatten shadows everywhere, re-add only where depth matters ── */
       #nc-root * { box-shadow: none !important; }
+      /* Pseudo-element decorations (stray light lines) — the JS observer
+         below can't reach these, only CSS can */
+      #nc-root *::before,
+      #nc-root *::after {
+        background-color: transparent !important;
+        background-image: none !important;
+        box-shadow: none !important;
+      }
       #nc-root [role=dialog],
       #nc-root [role=listbox],
       #nc-root [role=menu] {
@@ -363,8 +376,15 @@
 
           var bg = parse(cs.backgroundColor);
           if (bg && bg.a >= 0.15 && lum(bg) > 160) {
-            /* white surfaces -> card tone, light grays -> page tone */
-            el.style.setProperty('background-color', lum(bg) > 235 ? '#161616' : '#0e0e0e', 'important');
+            /* big areas blend into the page; small surfaces get card tone */
+            var r = el.getBoundingClientRect();
+            var big = r.width * r.height > window.innerWidth * window.innerHeight * 0.35;
+            el.style.setProperty('background-color', big ? '#0a0a0a' : (lum(bg) > 235 ? '#151515' : '#0f0f0f'), 'important');
+          }
+
+          var bi = cs.backgroundImage;
+          if (bi !== 'none' && bi.indexOf('gradient') !== -1 && bi.indexOf('url(') === -1) {
+            el.style.setProperty('background-image', 'none', 'important');
           }
 
           var col = parse(cs.color);
