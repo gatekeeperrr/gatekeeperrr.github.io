@@ -7,22 +7,21 @@
     <title>Admin · pr1meM</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg0: #0e0e11;   /* app background */
-        --bg1: #15151a;   /* surfaces: header, sidebar, cards */
-        --bg2: #1c1c22;   /* inputs, hover, code */
-        --bd:  #26262e;   /* borders */
-        --bd2: #34343e;   /* borders hover */
-        --tx:  #d6d6dd;   /* primary text */
-        --tx2: #6e6e7a;   /* muted text */
-        --ac:  #8a9bf5;   /* accent — soft indigo */
-        --ac-dim: rgba(138, 155, 245, 0.14);
-        --gr:  #4cae67;   /* publish green */
-        --re:  #e5534b;   /* delete red */
-        --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+        --bg0: #0a0a0a;   /* app background — deep black */
+        --bg1: #111111;   /* header, sidebar */
+        --bg2: #1a1a1a;   /* cards, inputs */
+        --bd:  #2a2a2a;   /* borders — barely visible */
+        --bd2: #3a3a3a;   /* borders on hover/focus */
+        --tx:  #f0f0f0;   /* primary text */
+        --tx2: #888888;   /* secondary text */
+        --ac:  #4a9eff;   /* single accent — used sparingly */
+        --ac-dim: rgba(74, 158, 255, 0.15);
+        --re:  #e05d54;   /* danger — muted */
+        --sans: 'Inter', system-ui, -apple-system, sans-serif;
+        --mono: 'JetBrains Mono', ui-monospace, monospace;
       }
 
       /* ── Base ── */
@@ -49,12 +48,13 @@
       #nc-root h4, #nc-root h5, #nc-root h6 {
         color: var(--tx) !important;
         font-weight: 600 !important;
-        letter-spacing: -0.01em !important;
+        letter-spacing: -0.015em !important;
       }
       #nc-root p, #nc-root span, #nc-root li,
       #nc-root td, #nc-root th { color: var(--tx) !important; }
       #nc-root a { color: var(--ac) !important; text-decoration: none !important; }
       #nc-root a:hover { text-decoration: underline !important; }
+      #nc-root ::selection { background: var(--ac-dim); }
 
       /* ── Surfaces ── */
       #nc-root nav {
@@ -78,7 +78,7 @@
       #nc-root [style*="background-color: white"],
       #nc-root [style*="background: white"],
       #nc-root [style*="background: rgb(255, 255, 255)"] {
-        background-color: var(--bg1) !important;
+        background-color: var(--bg2) !important;
       }
       #nc-root [style*="background-color: rgb(223"] { background-color: var(--bg2) !important; }
       #nc-root [style*="background-color: rgb(245"] { background-color: var(--bg1) !important; }
@@ -94,7 +94,7 @@
       #nc-root [class*="Wrapper"],
       #nc-root [class*="Container"],
       #nc-root [class*="Sidebar"] {
-        background: var(--bg1) !important;
+        background: var(--bg2) !important;
         border-color: var(--bd) !important;
       }
       #nc-root [class*="Card"]:hover,
@@ -111,7 +111,8 @@
         color: var(--tx) !important;
         border-radius: 6px !important;
         font-family: var(--sans) !important;
-        transition: border-color 0.15s, box-shadow 0.15s !important;
+        font-size: 15px !important;
+        transition: border-color 0.15s !important;
       }
       #nc-root input:focus,
       #nc-root textarea:focus,
@@ -122,13 +123,12 @@
       }
       #nc-root input::placeholder,
       #nc-root textarea::placeholder { color: var(--tx2) !important; }
-      #nc-root ::selection { background: var(--ac-dim); }
 
       /* ── The writing surface ─────────────────────────────
          Title input + markdown body: bigger type, more air.   */
       #nc-root input[id*="title"],
-      #nc-root input[placeholder*="itle"] {
-        font-size: 26px !important;
+      #nc-root input[placeholder*="itel"] {
+        font-size: 28px !important;
         font-weight: 600 !important;
         letter-spacing: -0.02em !important;
         background: transparent !important;
@@ -141,8 +141,8 @@
       #nc-root [data-slate-editor] p,
       #nc-root [data-slate-editor] span:not([class*="code"]) {
         font-size: 16.5px !important;
-        line-height: 1.85 !important;
-        color: #c8c8d2 !important;
+        line-height: 1.7 !important;
+        color: var(--tx) !important;
       }
       #nc-root [data-slate-editor] { padding: 8px 0 120px !important; caret-color: var(--ac); }
       /* Raw markdown mode */
@@ -150,10 +150,10 @@
       #nc-root [class*="RawEditor"] .CodeMirror,
       #nc-root .CodeMirror {
         background: var(--bg0) !important;
-        color: #c8c8d2 !important;
+        color: var(--tx) !important;
         font-family: var(--mono) !important;
         font-size: 14px !important;
-        line-height: 1.8 !important;
+        line-height: 1.7 !important;
         border: none !important;
       }
       #nc-root .CodeMirror-cursor { border-left-color: var(--ac) !important; }
@@ -170,24 +170,27 @@
         font-family: var(--sans) !important;
         font-weight: 500 !important;
         cursor: pointer !important;
-        transition: background 0.15s, border-color 0.15s !important;
+        transition: border-color 0.15s, background 0.15s !important;
       }
       #nc-root button:hover {
-        background: var(--bd) !important;
         border-color: var(--bd2) !important;
       }
-      /* Publish / primary */
+      /* Publish / primary: white on black — the one strong element */
       #nc-root button[class*="primary"],
       #nc-root button[class*="success"],
       #nc-root button[class*="Publish"],
       #nc-root button[class*="publish"] {
-        background: var(--gr) !important;
-        border-color: var(--gr) !important;
-        color: #fff !important;
+        background: var(--tx) !important;
+        border-color: var(--tx) !important;
+        color: var(--bg0) !important;
       }
       #nc-root button[class*="Publish"]:hover,
       #nc-root button[class*="publish"]:hover {
-        filter: brightness(1.1);
+        background: #ffffff !important;
+      }
+      #nc-root button[class*="Publish"] span,
+      #nc-root button[class*="publish"] span {
+        color: var(--bg0) !important;
       }
       /* Delete / danger */
       #nc-root button[class*="Delete"],
@@ -236,7 +239,7 @@
         background: var(--bg1) !important;
         border: 1px solid var(--bd) !important;
         border-radius: 8px !important;
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
         color: var(--tx) !important;
       }
       #nc-root [role=option]:hover,
@@ -248,7 +251,7 @@
       #nc-root code,
       #nc-root pre {
         background: var(--bg2) !important;
-        color: #a5b4fc !important;
+        color: var(--tx) !important;
         font-family: var(--mono) !important;
         font-size: 13px !important;
         border-radius: 4px !important;
@@ -280,13 +283,16 @@
         background: var(--bg0) !important;
       }
       #nc-root [class*="Authentication"] button {
-        background: var(--bg2) !important;
-        border: 1px solid var(--bd2) !important;
-        color: var(--tx) !important;
+        background: var(--tx) !important;
+        border: 1px solid var(--tx) !important;
+        color: var(--bg0) !important;
         padding: 12px 24px !important;
       }
       #nc-root [class*="Authentication"] button:hover {
-        border-color: var(--ac) !important;
+        background: #ffffff !important;
+      }
+      #nc-root [class*="Authentication"] button span {
+        color: var(--bg0) !important;
       }
 
       /* ── Scrollbars ── */
@@ -301,7 +307,7 @@
       #nc-root [role=dialog],
       #nc-root [role=listbox],
       #nc-root [role=menu] {
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6) !important;
       }
       #nc-root input:focus,
       #nc-root textarea:focus,
