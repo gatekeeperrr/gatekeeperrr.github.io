@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ml0w6c65766c/m-portfolio
+  repo: pr1mem/m-portfolio
   branch: master
   base_url: https://pr1mem.xyz
   auth_endpoint: /api/auth/authorize
