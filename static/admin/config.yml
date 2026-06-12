@@ -1,0 +1,168 @@
+backend:
+  name: github
+  repo: ml0w6c65766c/m-portfolio
+  branch: master
+  base_url: https://pr1mem.xyz
+  auth_endpoint: /api/auth/authorize
+
+media_folder: static/uploads
+public_folder: /uploads
+
+locale: de
+
+editor:
+  preview: true
+
+collections:
+  - name: blog
+    label: "Blog"
+    label_singular: "Blog Post"
+    folder: content/blog
+    create: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: "Titel"
+        name: title
+        widget: string
+      - label: "Datum"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        date_format: "YYYY-MM-DD"
+      - label: "Beschreibung"
+        name: description
+        widget: string
+        hint: "Kurze Zusammenfassung (wird in der Vorschaukarte angezeigt)"
+      - label: "Thumbnail"
+        name: thumbnail
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Datei als 'thumbnail.png' benennen damit sie auf der Blog-Übersicht erscheint"
+      - label: "Entwurf"
+        name: draft
+        widget: boolean
+        default: true
+        hint: "Entwurf = nicht öffentlich sichtbar"
+      - label: "Inhalt"
+        name: body
+        widget: markdown
+
+  - name: writeups-pwn
+    label: "Writeups › PWN"
+    label_singular: "PWN Writeup"
+    folder: content/writeups/pwn
+    create: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: "Titel"
+        name: title
+        widget: string
+      - label: "Datum"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        date_format: "YYYY-MM-DD"
+      - label: "Beschreibung"
+        name: description
+        widget: string
+        required: false
+      - label: "Thumbnail"
+        name: thumbnail
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Datei als 'thumbnail.png' benennen damit sie auf der Writeups-Übersicht erscheint"
+      - label: "Entwurf"
+        name: draft
+        widget: boolean
+        default: true
+      - label: "Inhalt"
+        name: body
+        widget: markdown
+
+  - name: writeups-malware
+    label: "Writeups › Malware Analysis"
+    label_singular: "Malware Analysis Writeup"
+    folder: content/writeups/malware-analysis
+    create: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: "Titel"
+        name: title
+        widget: string
+      - label: "Datum"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        date_format: "YYYY-MM-DD"
+      - label: "Beschreibung"
+        name: description
+        widget: string
+        required: false
+      - label: "Thumbnail"
+        name: thumbnail
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Datei als 'thumbnail.png' benennen damit sie auf der Writeups-Übersicht erscheint"
+      - label: "Entwurf"
+        name: draft
+        widget: boolean
+        default: true
+      - label: "Inhalt"
+        name: body
+        widget: markdown
+
+  - name: writeups-osint
+    label: "Writeups › OSINT"
+    label_singular: "OSINT Writeup"
+    folder: content/writeups/osint
+    create: true
+    path: "{{slug}}/index"
+    media_folder: ""
+    public_folder: ""
+    slug: "{{slug}}"
+    summary: "{{title}} — {{date}}"
+    fields:
+      - label: "Titel"
+        name: title
+        widget: string
+      - label: "Datum"
+        name: date
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        date_format: "YYYY-MM-DD"
+      - label: "Beschreibung"
+        name: description
+        widget: string
+        required: false
+      - label: "Thumbnail"
+        name: thumbnail
+        widget: image
+        required: false
+        choose_url: false
+        hint: "Datei als 'thumbnail.png' benennen damit sie auf der Writeups-Übersicht erscheint"
+      - label: "Entwurf"
+        name: draft
+        widget: boolean
+        default: true
+      - label: "Inhalt"
+        name: body
+        widget: markdown
