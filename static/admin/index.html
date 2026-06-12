@@ -5,6 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Admin · pr1meM</title>
+    <style>
+      :root {
+        --bg0: #0d1117;
+        --bg1: #161b22;
+        --bg2: #21262d;
+        --bd:  #30363d;
+        --tx:  #c9d1d9;
+        --tx2: #6e7681;
+        --ac:  #58a6ff;
+        --gr:  #3fb950;
+        --re:  #f85149;
+      }
+
+      /* ── Base ── */
+      *, *::before, *::after { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        background: var(--bg0) !important;
+        color: var(--tx) !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+      }
+
+      #nc-root {
+        background: var(--bg0) !important;
+        color: var(--tx) !important;
+      }
+
+      /* ── Typography ── */
+      #nc-root h1, #nc-root h2, #nc-root h3,
+      #nc-root h4, #nc-root h5, #nc-root h6 {
+        color: var(--tx) !important;
+        font-weight: 600 !important;
+      }
+      #nc-root p, #nc-root span, #nc-root li,
+      #nc-root td, #nc-root th { color: var(--tx) !important; }
+      #nc-root a { color: var(--ac) !important; text-decoration: none !important; }
+      #nc-root a:hover { text-decoration: underline !important; }
+
+      /* ── Surfaces ── */
+      #nc-root nav {
+        background: var(--bg1) !important;
+        border-right: 1px solid var(--bd) !important;
+        box-shadow: none !important;
+      }
+      #nc-root header {
+        background: var(--bg1) !important;
+        border-bottom: 1px solid var(--bd) !important;
+        box-shadow: none !important;
+      }
+      #nc-root aside {
+        background: var(--bg1) !important;
+        border-color: var(--bd) !important;
+      }
+      #nc-root main {
+        background: var(--bg0) !important;
+      }
+
+      /* ── Catch white panels by inline style ── */
+      #nc-root [style*="background-color: rgb(255, 255, 255)"],
+      #nc-root [style*="background-color: white"],
+      #nc-root [style*="background: white"],
+      #nc-root [style*="background: rgb(255, 255, 255)"] {
+        background-color: var(--bg1) !important;
+      }
+      #nc-root [style*="background-color: rgb(223"] {
+        background-color: var(--bg2) !important;
+      }
+      #nc-root [style*="background-color: rgb(245"] {
+        background-color: var(--bg1) !important;
+      }
+
+      /* ── Cards & panels ── */
+      #nc-root [class*="Card"],
+      #nc-root [class*="card"],
+      #nc-root [class*="Panel"],
+      #nc-root [class*="panel"],
+      #nc-root [class*="Pane"],
+      #nc-root [class*="pane"],
+      #nc-root [class*="Wrapper"],
+      #nc-root [class*="Container"] {
+        background: var(--bg1) !important;
+        border-color: var(--bd) !important;
+      }
+
+      /* ── Inputs ── */
+      #nc-root input:not([type=checkbox]):not([type=radio]):not([type=range]),
+      #nc-root textarea,
+      #nc-root select {
+        background: var(--bg2) !important;
+        border: 1px solid var(--bd) !important;
+        color: var(--tx) !important;
+        border-radius: 6px !important;
+        transition: border-color 0.15s, box-shadow 0.15s !important;
+      }
+      #nc-root input:focus,
+      #nc-root textarea:focus,
+      #nc-root select:focus {
+        border-color: var(--ac) !important;
+        box-shadow: 0 0 0 3px rgba(88,166,255,.12) !important;
+        outline: none !important;
+      }
+      #nc-root input::placeholder,
+      #nc-root textarea::placeholder { color: var(--tx2) !important; }
+
+      /* ── Buttons ── */
+      #nc-root button {
+        background: var(--bg2) !important;
+        border: 1px solid var(--bd) !important;
+        color: var(--tx) !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        transition: background 0.15s, border-color 0.15s !important;
+      }
+      #nc-root button:hover {
+        background: var(--bd) !important;
+        border-color: var(--tx2) !important;
+      }
+      /* Publish / primary buttons */
+      #nc-root button[class*="primary"],
+      #nc-root button[class*="success"],
+      #nc-root button[class*="Publish"],
+      #nc-root button[class*="publish"] {
+        background: var(--gr) !important;
+        border-color: var(--gr) !important;
+        color: #fff !important;
+      }
+
+      /* ── Labels ── */
+      #nc-root label {
+        color: var(--tx2) !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: .06em !important;
+      }
+
+      /* ── Dropdown / Menus / Dialogs ── */
+      #nc-root [role=listbox],
+      #nc-root [role=menu],
+      #nc-root [role=dialog],
+      #nc-root [role=tooltip] {
+        background: var(--bg1) !important;
+        border: 1px solid var(--bd) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
+        color: var(--tx) !important;
+      }
+      #nc-root [role=option]:hover,
+      #nc-root [role=menuitem]:hover {
+        background: var(--bg2) !important;
+      }
+
+      /* ── Toolbars (Markdown editor) ── */
+      #nc-root [class*="Toolbar"],
+      #nc-root [class*="toolbar"],
+      #nc-root [class*="EditorControl"],
+      #nc-root [class*="RawEditor"] {
+        background: var(--bg1) !important;
+        border-color: var(--bd) !important;
+        color: var(--tx) !important;
+      }
+
+      /* ── Code blocks in markdown editor ── */
+      #nc-root code,
+      #nc-root pre {
+        background: var(--bg2) !important;
+        color: #a5d6ff !important;
+        border-radius: 4px !important;
+        border-color: var(--bd) !important;
+      }
+
+      /* ── Tables ── */
+      #nc-root table { border-collapse: collapse !important; }
+      #nc-root th { background: var(--bg2) !important; color: var(--tx2) !important; }
+      #nc-root td, #nc-root th { border-color: var(--bd) !important; }
+      #nc-root tr:hover > td { background: var(--bg2) !important; }
+
+      /* ── Dividers ── */
+      #nc-root hr { border-color: var(--bd) !important; }
+
+      /* ── Toggle / Boolean widget ── */
+      #nc-root input[type=checkbox] { accent-color: var(--ac); }
+
+      /* ── Notifications ── */
+      #nc-root [class*="Toast"],
+      #nc-root [class*="toast"],
+      #nc-root [class*="notification"],
+      #nc-root [class*="Notification"] {
+        background: var(--bg1) !important;
+        border: 1px solid var(--bd) !important;
+        color: var(--tx) !important;
+        border-radius: 8px !important;
+      }
+
+      /* ── Scrollbars ── */
+      * { scrollbar-width: thin; scrollbar-color: var(--bd) transparent; }
+      ::-webkit-scrollbar { width: 5px; height: 5px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--bd); border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--tx2); }
+
+      /* ── Reduce noise: flatten shadows everywhere ── */
+      #nc-root * { box-shadow: none !important; }
+      #nc-root [role=dialog],
+      #nc-root [role=listbox],
+      #nc-root [role=menu] {
+        box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
+      }
+    </style>
   </head>
   <body>
     <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
