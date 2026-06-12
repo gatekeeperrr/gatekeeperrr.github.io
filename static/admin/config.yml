@@ -8,11 +8,6 @@ backend:
 media_folder: static/uploads
 public_folder: /uploads
 
-locale: de
-
-editor:
-  preview: true
-
 collections:
   - name: blog
     label: "Blog"
