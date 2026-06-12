@@ -144,7 +144,7 @@
         line-height: 1.7 !important;
         color: var(--tx) !important;
       }
-      #nc-root [data-slate-editor] { padding: 8px 0 120px !important; caret-color: var(--ac); }
+      #nc-root [data-slate-editor] { padding: 24px 32px 140px !important; caret-color: var(--ac); }
       /* Raw markdown mode */
       #nc-root [class*="RawEditor"] textarea,
       #nc-root [class*="RawEditor"] .CodeMirror,
@@ -156,6 +156,7 @@
         line-height: 1.7 !important;
         border: none !important;
       }
+      #nc-root .CodeMirror-lines { padding: 24px 28px !important; }
       #nc-root .CodeMirror-cursor { border-left-color: var(--ac) !important; }
       #nc-root .CodeMirror-gutters { background: var(--bg0) !important; border-right: 1px solid var(--bd) !important; }
       #nc-root .CodeMirror-linenumber { color: var(--tx2) !important; }
@@ -361,7 +362,7 @@
           var cs = getComputedStyle(el);
 
           var bg = parse(cs.backgroundColor);
-          if (bg && bg.a >= 0.5 && lum(bg) > 160) {
+          if (bg && bg.a >= 0.15 && lum(bg) > 160) {
             /* white surfaces -> card tone, light grays -> page tone */
             el.style.setProperty('background-color', lum(bg) > 235 ? '#161616' : '#0e0e0e', 'important');
           }
@@ -371,10 +372,20 @@
             el.style.setProperty('color', '#ededed', 'important');
           }
 
-          if (cs.borderTopWidth !== '0px') {
-            var bc = parse(cs.borderTopColor);
-            if (bc && lum(bc) > 160) {
-              el.style.setProperty('border-color', '#2a2a2a', 'important');
+          var sides = ['Top', 'Right', 'Bottom', 'Left'];
+          for (var s = 0; s < sides.length; s++) {
+            if (cs['border' + sides[s] + 'Width'] !== '0px') {
+              var bc = parse(cs['border' + sides[s] + 'Color']);
+              if (bc && lum(bc) > 150) {
+                el.style.setProperty('border-' + sides[s].toLowerCase() + '-color', '#262626', 'important');
+              }
+            }
+          }
+
+          if (cs.outlineWidth !== '0px' && cs.outlineStyle !== 'none') {
+            var oc = parse(cs.outlineColor);
+            if (oc && lum(oc) > 150) {
+              el.style.setProperty('outline-color', '#262626', 'important');
             }
           }
         }
