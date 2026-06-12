@@ -11,8 +11,8 @@
     <style>
       :root {
         --bg0: #0a0a0a;   /* app background — deep black */
-        --bg1: #111111;   /* header, sidebar */
-        --bg2: #1a1a1a;   /* cards, inputs */
+        --bg1: #0a0a0a;   /* header, sidebar — flat, no gray */
+        --bg2: #0e0e0e;   /* inputs, hover — barely above black */
         --bd:  #2a2a2a;   /* borders — barely visible */
         --bd2: #3a3a3a;   /* borders on hover/focus */
         --tx:  #f0f0f0;   /* primary text */
@@ -379,7 +379,7 @@
             /* big areas blend into the page; small surfaces get card tone */
             var r = el.getBoundingClientRect();
             var big = r.width * r.height > window.innerWidth * window.innerHeight * 0.35;
-            el.style.setProperty('background-color', big ? '#0a0a0a' : (lum(bg) > 235 ? '#151515' : '#0f0f0f'), 'important');
+            el.style.setProperty('background-color', (!big && lum(bg) > 235) ? '#0e0e0e' : '#0a0a0a', 'important');
           }
 
           var bi = cs.backgroundImage;
