@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
     <title>Admin · pr1meM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
       :root {
-        --bg0: #0d1117;
-        --bg1: #161b22;
-        --bg2: #21262d;
-        --bd:  #30363d;
-        --tx:  #c9d1d9;
-        --tx2: #6e7681;
-        --ac:  #58a6ff;
-        --gr:  #3fb950;
-        --re:  #f85149;
+        --bg0: #0e0e11;   /* app background */
+        --bg1: #15151a;   /* surfaces: header, sidebar, cards */
+        --bg2: #1c1c22;   /* inputs, hover, code */
+        --bd:  #26262e;   /* borders */
+        --bd2: #34343e;   /* borders hover */
+        --tx:  #d6d6dd;   /* primary text */
+        --tx2: #6e6e7a;   /* muted text */
+        --ac:  #8a9bf5;   /* accent — soft indigo */
+        --ac-dim: rgba(138, 155, 245, 0.14);
+        --gr:  #4cae67;   /* publish green */
+        --re:  #e5534b;   /* delete red */
+        --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
       }
 
       /* ── Base ── */
@@ -25,19 +32,24 @@
         margin: 0;
         background: var(--bg0) !important;
         color: var(--tx) !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+        font-family: var(--sans) !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
       #nc-root {
         background: var(--bg0) !important;
         color: var(--tx) !important;
+        font-family: var(--sans) !important;
       }
+      #nc-root * { font-family: inherit; }
 
       /* ── Typography ── */
       #nc-root h1, #nc-root h2, #nc-root h3,
       #nc-root h4, #nc-root h5, #nc-root h6 {
         color: var(--tx) !important;
         font-weight: 600 !important;
+        letter-spacing: -0.01em !important;
       }
       #nc-root p, #nc-root span, #nc-root li,
       #nc-root td, #nc-root th { color: var(--tx) !important; }
@@ -59,23 +71,18 @@
         background: var(--bg1) !important;
         border-color: var(--bd) !important;
       }
-      #nc-root main {
-        background: var(--bg0) !important;
-      }
+      #nc-root main { background: var(--bg0) !important; }
 
-      /* ── Catch white panels by inline style ── */
+      /* ── Kill white/light inline backgrounds ── */
       #nc-root [style*="background-color: rgb(255, 255, 255)"],
       #nc-root [style*="background-color: white"],
       #nc-root [style*="background: white"],
       #nc-root [style*="background: rgb(255, 255, 255)"] {
         background-color: var(--bg1) !important;
       }
-      #nc-root [style*="background-color: rgb(223"] {
-        background-color: var(--bg2) !important;
-      }
-      #nc-root [style*="background-color: rgb(245"] {
-        background-color: var(--bg1) !important;
-      }
+      #nc-root [style*="background-color: rgb(223"] { background-color: var(--bg2) !important; }
+      #nc-root [style*="background-color: rgb(245"] { background-color: var(--bg1) !important; }
+      #nc-root [style*="background-color: rgb(249"] { background-color: var(--bg1) !important; }
 
       /* ── Cards & panels ── */
       #nc-root [class*="Card"],
@@ -85,9 +92,14 @@
       #nc-root [class*="Pane"],
       #nc-root [class*="pane"],
       #nc-root [class*="Wrapper"],
-      #nc-root [class*="Container"] {
+      #nc-root [class*="Container"],
+      #nc-root [class*="Sidebar"] {
         background: var(--bg1) !important;
         border-color: var(--bd) !important;
+      }
+      #nc-root [class*="Card"]:hover,
+      #nc-root [class*="ListCard"]:hover {
+        border-color: var(--bd2) !important;
       }
 
       /* ── Inputs ── */
@@ -98,17 +110,56 @@
         border: 1px solid var(--bd) !important;
         color: var(--tx) !important;
         border-radius: 6px !important;
+        font-family: var(--sans) !important;
         transition: border-color 0.15s, box-shadow 0.15s !important;
       }
       #nc-root input:focus,
       #nc-root textarea:focus,
       #nc-root select:focus {
         border-color: var(--ac) !important;
-        box-shadow: 0 0 0 3px rgba(88,166,255,.12) !important;
+        box-shadow: 0 0 0 3px var(--ac-dim) !important;
         outline: none !important;
       }
       #nc-root input::placeholder,
       #nc-root textarea::placeholder { color: var(--tx2) !important; }
+      #nc-root ::selection { background: var(--ac-dim); }
+
+      /* ── The writing surface ─────────────────────────────
+         Title input + markdown body: bigger type, more air.   */
+      #nc-root input[id*="title"],
+      #nc-root input[placeholder*="itle"] {
+        font-size: 26px !important;
+        font-weight: 600 !important;
+        letter-spacing: -0.02em !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding-left: 0 !important;
+      }
+      /* Rich-text editor body (Slate) */
+      #nc-root [data-slate-editor],
+      #nc-root [data-slate-editor] p,
+      #nc-root [data-slate-editor] span:not([class*="code"]) {
+        font-size: 16.5px !important;
+        line-height: 1.85 !important;
+        color: #c8c8d2 !important;
+      }
+      #nc-root [data-slate-editor] { padding: 8px 0 120px !important; caret-color: var(--ac); }
+      /* Raw markdown mode */
+      #nc-root [class*="RawEditor"] textarea,
+      #nc-root [class*="RawEditor"] .CodeMirror,
+      #nc-root .CodeMirror {
+        background: var(--bg0) !important;
+        color: #c8c8d2 !important;
+        font-family: var(--mono) !important;
+        font-size: 14px !important;
+        line-height: 1.8 !important;
+        border: none !important;
+      }
+      #nc-root .CodeMirror-cursor { border-left-color: var(--ac) !important; }
+      #nc-root .CodeMirror-gutters { background: var(--bg0) !important; border-right: 1px solid var(--bd) !important; }
+      #nc-root .CodeMirror-linenumber { color: var(--tx2) !important; }
+      #nc-root .CodeMirror-selected { background: var(--ac-dim) !important; }
 
       /* ── Buttons ── */
       #nc-root button {
@@ -116,14 +167,16 @@
         border: 1px solid var(--bd) !important;
         color: var(--tx) !important;
         border-radius: 6px !important;
+        font-family: var(--sans) !important;
+        font-weight: 500 !important;
         cursor: pointer !important;
         transition: background 0.15s, border-color 0.15s !important;
       }
       #nc-root button:hover {
         background: var(--bd) !important;
-        border-color: var(--tx2) !important;
+        border-color: var(--bd2) !important;
       }
-      /* Publish / primary buttons */
+      /* Publish / primary */
       #nc-root button[class*="primary"],
       #nc-root button[class*="success"],
       #nc-root button[class*="Publish"],
@@ -132,33 +185,20 @@
         border-color: var(--gr) !important;
         color: #fff !important;
       }
-
-      /* ── Labels ── */
-      #nc-root label {
-        color: var(--tx2) !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: .06em !important;
+      #nc-root button[class*="Publish"]:hover,
+      #nc-root button[class*="publish"]:hover {
+        filter: brightness(1.1);
+      }
+      /* Delete / danger */
+      #nc-root button[class*="Delete"],
+      #nc-root button[class*="delete"],
+      #nc-root button[class*="danger"] {
+        background: transparent !important;
+        border-color: var(--bd) !important;
+        color: var(--re) !important;
       }
 
-      /* ── Dropdown / Menus / Dialogs ── */
-      #nc-root [role=listbox],
-      #nc-root [role=menu],
-      #nc-root [role=dialog],
-      #nc-root [role=tooltip] {
-        background: var(--bg1) !important;
-        border: 1px solid var(--bd) !important;
-        border-radius: 8px !important;
-        box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
-        color: var(--tx) !important;
-      }
-      #nc-root [role=option]:hover,
-      #nc-root [role=menuitem]:hover {
-        background: var(--bg2) !important;
-      }
-
-      /* ── Toolbars (Markdown editor) ── */
+      /* ── Markdown toolbar: quiet icon strip ── */
       #nc-root [class*="Toolbar"],
       #nc-root [class*="toolbar"],
       #nc-root [class*="EditorControl"],
@@ -167,12 +207,50 @@
         border-color: var(--bd) !important;
         color: var(--tx) !important;
       }
+      #nc-root [class*="Toolbar"] button,
+      #nc-root [class*="toolbar"] button {
+        background: transparent !important;
+        border: none !important;
+        color: var(--tx2) !important;
+      }
+      #nc-root [class*="Toolbar"] button:hover,
+      #nc-root [class*="toolbar"] button:hover {
+        background: var(--bg2) !important;
+        color: var(--tx) !important;
+      }
 
-      /* ── Code blocks in markdown editor ── */
+      /* ── Labels: small, quiet, uppercase ── */
+      #nc-root label {
+        color: var(--tx2) !important;
+        font-size: 11px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.07em !important;
+      }
+
+      /* ── Dropdowns / menus / dialogs ── */
+      #nc-root [role=listbox],
+      #nc-root [role=menu],
+      #nc-root [role=dialog],
+      #nc-root [role=tooltip] {
+        background: var(--bg1) !important;
+        border: 1px solid var(--bd) !important;
+        border-radius: 8px !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+        color: var(--tx) !important;
+      }
+      #nc-root [role=option]:hover,
+      #nc-root [role=menuitem]:hover {
+        background: var(--bg2) !important;
+      }
+
+      /* ── Code ── */
       #nc-root code,
       #nc-root pre {
         background: var(--bg2) !important;
-        color: #a5d6ff !important;
+        color: #a5b4fc !important;
+        font-family: var(--mono) !important;
+        font-size: 13px !important;
         border-radius: 4px !important;
         border-color: var(--bd) !important;
       }
@@ -183,13 +261,9 @@
       #nc-root td, #nc-root th { border-color: var(--bd) !important; }
       #nc-root tr:hover > td { background: var(--bg2) !important; }
 
-      /* ── Dividers ── */
+      /* ── Misc ── */
       #nc-root hr { border-color: var(--bd) !important; }
-
-      /* ── Toggle / Boolean widget ── */
       #nc-root input[type=checkbox] { accent-color: var(--ac); }
-
-      /* ── Notifications ── */
       #nc-root [class*="Toast"],
       #nc-root [class*="toast"],
       #nc-root [class*="notification"],
@@ -200,6 +274,21 @@
         border-radius: 8px !important;
       }
 
+      /* ── Login page ── */
+      #nc-root [class*="AuthenticationPage"],
+      #nc-root [class*="Authentication"] {
+        background: var(--bg0) !important;
+      }
+      #nc-root [class*="Authentication"] button {
+        background: var(--bg2) !important;
+        border: 1px solid var(--bd2) !important;
+        color: var(--tx) !important;
+        padding: 12px 24px !important;
+      }
+      #nc-root [class*="Authentication"] button:hover {
+        border-color: var(--ac) !important;
+      }
+
       /* ── Scrollbars ── */
       * { scrollbar-width: thin; scrollbar-color: var(--bd) transparent; }
       ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -207,12 +296,17 @@
       ::-webkit-scrollbar-thumb { background: var(--bd); border-radius: 3px; }
       ::-webkit-scrollbar-thumb:hover { background: var(--tx2); }
 
-      /* ── Reduce noise: flatten shadows everywhere ── */
+      /* ── Flatten shadows everywhere, re-add only where depth matters ── */
       #nc-root * { box-shadow: none !important; }
       #nc-root [role=dialog],
       #nc-root [role=listbox],
       #nc-root [role=menu] {
-        box-shadow: 0 8px 24px rgba(0,0,0,.5) !important;
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+      }
+      #nc-root input:focus,
+      #nc-root textarea:focus,
+      #nc-root select:focus {
+        box-shadow: 0 0 0 3px var(--ac-dim) !important;
       }
     </style>
   </head>
