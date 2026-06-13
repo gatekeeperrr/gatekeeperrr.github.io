@@ -1,83 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Heap 0 - picoCTF (pwn, Easy) — mlowlevl</title>
-<meta name="description" content="picoCTF easy pwn challenge — introduction to heap buffer overflows.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/">
-<meta property="og:title" content="Heap 0 - picoCTF (pwn, Easy) — mlowlevl">
-<meta property="og:description" content="picoCTF easy pwn challenge — introduction to heap buffer overflows.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Heap 0 - picoCTF (pwn, Easy) — mlowlevl">
-<link rel="canonical" href="https://mlowlevl.xyz/writeups/pwn/heap0-picoctf/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23202024'/><text x='16' y='22' text-anchor='middle' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%23c6c6c6'>m</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css">
-</head>
-<body><div class="nav" id="main-nav">
-  <div class="logo-wrap">
-    <div class="logo-row">
-      <a class="logo" href="/">mlowlevl</a>
-      <div class="socials">
-        <a href="https://github.com/ml0w6c65766c" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-        </a>
-        <a href="https://www.threads.net/@mlowlevl" target="_blank" rel="noopener" aria-label="Threads">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="tagline">ctf / pwn / malware-analysis</div>
-  </div>
-  <button class="hamburger" onclick="toggleMobileMenu()" aria-label="menu">
-    <span></span><span></span><span></span>
-  </button>
-  <nav class="nav-buttons">
-    <a class="nav-btn" href="/">home</a>
-    <span class="sep">|</span>
-    <div class="dropdown" id="wr-dropdown">
-      <button class="nav-btn active-tab" onclick="toggleDropdown(event)">
-        writeups <span class="chevron"></span>
-      </button>
-      <div class="dropdown-panel">
-        <a class="dropdown-item" href="/writeups/">all</a>
-        <a class="dropdown-item" href="/writeups/pwn/">pwn</a>
-        <a class="dropdown-item" href="/writeups/osint/">osint</a>
-        <a class="dropdown-item" href="/writeups/malware-analysis/">malware-analysis</a>
-      </div>
-    </div>
-    <span class="sep">|</span>
-    <a class="nav-btn" href="/blog/">blog</a>
-    <span class="sep">|</span>
-    <a class="nav-btn" href="/tools/">tools</a>
-    <span class="sep">|</span>
-    <a class="nav-btn" href="/links/">links</a>
-  </nav>
-</div>
-<div class="page-layout">
-  <div class="paper">
-    <div class="content">
-<div class="md-reader">
-  <a class="back" href="/writeups/">&#x27F5; back</a>
-  <div class="md-reader-header">
-    <div class="md-reader-title">Heap 0 - picoCTF (pwn, Easy)</div>
-    <div class="md-reader-meta">
-      <span class="md-reader-cat"></span>
-      <span class="md-reader-byline">mlowlevl · 2026-04-08 · 4 min read</span>
-    </div>
-  </div>
-  <div class="md"><h2 id="task">Task</h2>
-<p>Are overflows just a stack concern?
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Heap 0 - picoCTF (pwn, Easy)pr1meM</title>
+<meta name=description content="picoCTF easy pwn challenge — introduction to heap buffer overflows."><meta property="og:type" content="website"><meta property="og:url" content="https://pr1mem.xyz/writeups/pwn/heap0-picoctf/"><meta property="og:title" content="Heap 0 - picoCTF (pwn, Easy)pr1meM"><meta property="og:description" content="picoCTF easy pwn challenge — introduction to heap buffer overflows."><meta name=twitter:card content="summary"><meta name=twitter:title content="Heap 0 - picoCTF (pwn, Easy)pr1meM"><link rel=canonical href=https://pr1mem.xyz/writeups/pwn/heap0-picoctf/><link rel=icon href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23202024'/><text x='16' y='22' text-anchor='middle' font-family='Inter,sans-serif' font-size='18' font-weight='600' fill='%23c6c6c6'>m</text></svg>"><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><link rel=stylesheet href=/css/style.css></head><body><div class=nav id=main-nav><div class=logo-wrap><div class=logo-row><a class=logo href=/>pr1meM</a><div class=socials><a href=https://github.com/pr1meM target=_blank rel=noopener aria-label=GitHub><svg width="18" height="18" viewBox="0 0 24 24" fill="currentcolor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482.0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943.0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647.0.0.84-.269 2.75 1.025A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683.0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852.0 1.336-.012 2.415-.012 2.743.0.267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+</a><a href=https://www.threads.net/@Pr1meM target=_blank rel=noopener aria-label=Threads><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-3.92 7.94"/></svg></a></div></div><div class=tagline>ctf / pwn / rev</div></div><button class=hamburger onclick=toggleMobileMenu() aria-label=menu>
+<span></span><span></span><span></span></button><nav class=nav-buttons><a class=nav-btn href=/>home</a>
+<span class=sep>|</span><div class=dropdown id=wr-dropdown><button class="nav-btn active-tab" onclick=toggleDropdown(event)>
+writeups <span class=chevron></span></button><div class=dropdown-panel><a class=dropdown-item href=/writeups/>all</a>
+<a class=dropdown-item href=/writeups/pwn/>pwn</a>
+<a class=dropdown-item href=/writeups/osint/>osint</a>
+<a class=dropdown-item href=/writeups/malware-analysis/>malware-analysis</a></div></div><span class=sep>|</span>
+<a class=nav-btn href=/blog/>blog</a>
+<span class=sep>|</span>
+<a class=nav-btn href=/tools/>tools</a>
+<span class=sep>|</span>
+<a class=nav-btn href=/links/>links</a></nav></div><div class=page-layout><div class=paper><div class=content><div class=md-reader><a class=back href=/writeups/>&#x27F5; back</a><div class=md-reader-header><div class=md-reader-title>Heap 0 - picoCTF (pwn, Easy)</div><div class=md-reader-meta><span class=md-reader-cat></span>
+<span class=md-reader-byline>pr1meM · 2026-04-08 · 4 min read</span></div></div><div class=md><h2 id=task>Task</h2><p>Are overflows just a stack concern?
 Download the binary here. Download the source here.
 Additional details will be available after launching your challenge instance.
-<strong>Author:</strong> Abrxs, pr1or1tyQ</p>
-<hr>
-<h2 id="initial-recon">Initial Recon</h2>
-<p>First i started the program to get a overview on whats going on:</p>
-<pre tabindex="0"><code>Welcome to heap0!
+<strong>Author:</strong> Abrxs, pr1or1tyQ</p><hr><h2 id=initial-recon>Initial Recon</h2><p>First i started the program to get a overview on whats going on:</p><pre tabindex=0><code>Welcome to heap0!
 I put my data on the heap so it should be safe from any tampering.
 Since my data isn&#39;t on the stack I&#39;ll even let you write whatever info you want to the heap, I already took care of using malloc for you.
 
@@ -97,15 +35,7 @@ Heap State:
 5. Exit
 
 Enter your choice: 
-</code></pre><p>The program starts with a menu-based application and shows an initial heap layout containing two allocated heap chunks.</p>
-<ul>
-<li>one containing <code>&quot;pico&quot;</code></li>
-<li>one containing <code>&quot;bico&quot;</code></li>
-</ul>
-<p>The program also provides multiple interaction options such as printing the heap, writing to a buffer, and printing the flag</p>
-<hr>
-<h2 id="source-code-analysis">Source Code Analysis</h2>
-<pre tabindex="0"><code>#include &lt;stdio.h&gt;
+</code></pre><p>The program starts with a menu-based application and shows an initial heap layout containing two allocated heap chunks.</p><ul><li>one containing <code>"pico"</code></li><li>one containing <code>"bico"</code></li></ul><p>The program also provides multiple interaction options such as printing the heap, writing to a buffer, and printing the flag</p><hr><h2 id=source-code-analysis>Source Code Analysis</h2><pre tabindex=0><code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 
@@ -232,143 +162,18 @@ int main(void) {
         }
     }
 }
-</code></pre><p>After reviewing the source code, the main behavior of the program depends on the variable <code>safe_var</code>.</p>
-<p>The program prints the flag if the following condition is met:</p>
-<pre tabindex="0"><code>if (strcmp(safe_var, &#34;bico&#34;) != 0) {
+</code></pre><p>After reviewing the source code, the main behavior of the program depends on the variable <code>safe_var</code>.</p><p>The program prints the flag if the following condition is met:</p><pre tabindex=0><code>if (strcmp(safe_var, &#34;bico&#34;) != 0) {
         printf(&#34;\nYOU WIN\n&#34;);
-</code></pre><p>This means that the program considers the user a winner if <code>safe_var</code> is changed to anything other than <code>&quot;bico&quot;</code>.</p>
-<hr>
-<h2 id="vulnerability-analysis">Vulnerability Analysis</h2>
-<p>The key vulnerability is that the user input is read using <code>scanf(%s)</code> without any length restriction.</p>
-<pre tabindex="0"><code>void write_buffer() {
+</code></pre><p>This means that the program considers the user a winner if <code>safe_var</code> is changed to anything other than <code>"bico"</code>.</p><hr><h2 id=vulnerability-analysis>Vulnerability Analysis</h2><p>The key vulnerability is that the user input is read using <code>scanf(%s)</code> without any length restriction.</p><pre tabindex=0><code>void write_buffer() {
     printf(&#34;Data for buffer: &#34;);
     fflush(stdout);
     scanf(&#34;%s&#34;, input_data);
 }
-</code></pre><p>Although <code>input_data</code> is allocated with only 5 bytes:</p>
-<pre tabindex="0"><code>#define INPUT_DATA_SIZE 5
+</code></pre><p>Although <code>input_data</code> is allocated with only 5 bytes:</p><pre tabindex=0><code>#define INPUT_DATA_SIZE 5
 input_data = malloc(INPUT_DATA_SIZE);
-</code></pre><p>This allows the user to input more data then the allocated heap buffer can hold, resulting in a heap buffer overflow</p>
-<p>Since heap allocations are placed next to each other in memory, overflowing <code>input_data</code> can overwrite adjacent heap data, including <code>safe_var</code>.</p>
-<hr>
-<h2 id="exploitation">Exploitation</h2>
-<p>By providing more input than the allocated heap buffer can handle, we are able to trigger a heap buffer overflow.</p>
-<p>Since <code>input_data</code> and <code>safe_var</code> are stored adjacently in the heap, overflowing <code>input_data</code> allows us to overwrite the contents of <code>safe_var</code>.</p>
-<p>By replacing the original value <code>&quot;bico&quot;</code> with a different value (e.g. <code>&quot;AAAAAAAAAA&quot;</code>), the condition in the <code>check_win()</code> function is satisfied:</p>
-<pre tabindex="0"><code>strcmp(safe_var, &#34;bico&#34;) != 0
-</code></pre><p>As a result, the program detects that <code>safe_var</code> has been modified and triggers the win condition, which prints the flag.</p>
-<p><code>picoCTF{FLAG}</code></p>
-<hr>
-<p>Author: ml0w6c65766c</p>
-</div>
-  <div class="giscus-wrap">
-  <div class="giscus-label">comments</div>
-  <script src="https://giscus.app/client.js"
-    data-repo="ml0w6c65766c/blog_comments"
-    data-repo-id="R_kgDOSfPezw"
-    data-category="General"
-    data-category-id="DIC_kwDOSfPez84C9L2H"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="top"
-    data-theme="transparent_dark"
-    data-lang="en"
-    crossorigin="anonymous"
-    async>
-  </script>
-</div>
-
-</div>
-
-    </div>
-  </div>
-<aside class="extra-paper">
-  <div class="sidebar-block">
-  <div class="sidebar-heading">explore</div>
-  <div class="sidebar-tags">
-    <a class="sidebar-tag" href="/writeups/pwn/">pwn</a>
-    <a class="sidebar-tag" href="/writeups/osint/">osint</a>
-    <a class="sidebar-tag" href="/writeups/malware-analysis/">malware-analysis</a>
-    <a class="sidebar-tag" href="/blog/">blog</a>
-  </div>
-</div>
-
-<div class="sidebar-block">
-  <div class="sidebar-heading">recent posts</div>
-  <a class="sidebar-post" href="/blog/binary-security-mechanisms-pie-aslr/">
-      
-      <img class="sidebar-post-thumb" src="/blog/binary-security-mechanisms-pie-aslr/thumbnail.png" alt="">
-      
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">blog</div>
-        <div class="sidebar-post-title">Binary Security Mechanisms: PIE &#43; ASLR</div>
-        <div class="sidebar-post-date">2026-05-18</div>
-      </div>
-    </a>
-  <a class="sidebar-post" href="/blog/binary-security-mechanisms-relro/">
-      
-      <img class="sidebar-post-thumb" src="/blog/binary-security-mechanisms-relro/thumbnail.png" alt="">
-      
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">blog</div>
-        <div class="sidebar-post-title">Binary Security Mechanisms: RELRO</div>
-        <div class="sidebar-post-date">2026-05-17</div>
-      </div>
-    </a>
-  <a class="sidebar-post" href="/writeups/pwn/you-know-0xdiablos-htb/">
-      
-      <img class="sidebar-post-thumb" src="/writeups/pwn/you-know-0xdiablos-htb/thumbnail.png" alt="">
-      
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">writeups</div>
-        <div class="sidebar-post-title">you-know-0xdiablos - HackTheBox (pwn, Easy)</div>
-        <div class="sidebar-post-date">2026-05-13</div>
-      </div>
-    </a>
-  <a class="sidebar-post" href="/blog/what-is-plt-libc-got-blog-post/">
-      
-      <img class="sidebar-post-thumb" src="/blog/what-is-plt-libc-got-blog-post/thumbnail.png" alt="">
-      
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">blog</div>
-        <div class="sidebar-post-title">What is libc, GOT and PLT?</div>
-        <div class="sidebar-post-date">2026-05-10</div>
-      </div>
-    </a>
-  <a class="sidebar-post" href="/writeups/malware-analysis/linux-reverse-shell/">
-      
-      <img class="sidebar-post-thumb" src="/writeups/malware-analysis/linux-reverse-shell/thumbnail.png" alt="">
-      
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">writeups</div>
-        <div class="sidebar-post-title">Malware Analysis: Simple Linux Reverse Shell in C</div>
-        <div class="sidebar-post-date">2026-04-17</div>
-      </div>
-    </a>
-  
-</div>
-
-
-</aside>
-
-</div><footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-name">mlowlevl</div>
-      <div class="footer-copy">© 2026 · ctf / pwn / malware-analysis</div>
-    </div>
-    <div class="footer-links">
-      <a href="https://github.com/ml0w6c65766c" target="_blank" rel="noopener" title="GitHub">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
-      </a>
-      <a href="https://www.threads.net/@mlowlevl" target="_blank" rel="noopener" title="Threads">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"/></svg>
-      </a>
-    </div>
-  </div>
-</footer>
-<script src="/js/main.js"></script>
-</body>
-</html>
+</code></pre><p>This allows the user to input more data then the allocated heap buffer can hold, resulting in a heap buffer overflow</p><p>Since heap allocations are placed next to each other in memory, overflowing <code>input_data</code> can overwrite adjacent heap data, including <code>safe_var</code>.</p><hr><h2 id=exploitation>Exploitation</h2><p>By providing more input than the allocated heap buffer can handle, we are able to trigger a heap buffer overflow.</p><p>Since <code>input_data</code> and <code>safe_var</code> are stored adjacently in the heap, overflowing <code>input_data</code> allows us to overwrite the contents of <code>safe_var</code>.</p><p>By replacing the original value <code>"bico"</code> with a different value (e.g. <code>"AAAAAAAAAA"</code>), the condition in the <code>check_win()</code> function is satisfied:</p><pre tabindex=0><code>strcmp(safe_var, &#34;bico&#34;) != 0
+</code></pre><p>As a result, the program detects that <code>safe_var</code> has been modified and triggers the win condition, which prints the flag.</p><p><code>picoCTF{FLAG}</code></p><hr><p>Author: pr1meM</p></div><div class=giscus-wrap><div class=giscus-label>comments</div><script src=https://giscus.app/client.js data-repo=pr1meM/blog_comments data-repo-id=R_kgDOSfPezw data-category=General data-category-id=DIC_kwDOSfPez84C9L2H data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=transparent_dark data-lang=en crossorigin=anonymous async></script></div></div></div></div><aside class=extra-paper><div class=sidebar-block><div class=sidebar-heading>explore</div><div class=sidebar-tags><a class=sidebar-tag href=/writeups/pwn/>pwn</a>
+<a class=sidebar-tag href=/writeups/osint/>osint</a>
+<a class=sidebar-tag href=/writeups/malware-analysis/>malware-analysis</a>
+<a class=sidebar-tag href=/blog/>blog</a></div></div><div class=sidebar-block><div class=sidebar-heading>recent posts</div><a class=sidebar-post href=/blog/binary-security-mechanisms-stack-canary/><img class=sidebar-post-thumb src=/blog/binary-security-mechanisms-stack-canary/thumbnail.png alt><div class=sidebar-post-info><div class=sidebar-post-label>blog</div><div class=sidebar-post-title>Binary Security Mechanisms: Stack Canary</div><div class=sidebar-post-date>2026-06-02</div></div></a><a class=sidebar-post href=/writeups/pwn/split-ropemporiumctf/><img class=sidebar-post-thumb src=/writeups/pwn/split-ropemporiumctf/thumbnail.png alt><div class=sidebar-post-info><div class=sidebar-post-label>writeups</div><div class=sidebar-post-title>Split - ROP Emporium</div><div class=sidebar-post-date>2026-05-25</div></div></a><a class=sidebar-post href=/blog/binary-security-mechanisms-pie-aslr/><img class=sidebar-post-thumb src=/blog/binary-security-mechanisms-pie-aslr/thumbnail.png alt><div class=sidebar-post-info><div class=sidebar-post-label>blog</div><div class=sidebar-post-title>Binary Security Mechanisms: PIE + ASLR</div><div class=sidebar-post-date>2026-05-18</div></div></a><a class=sidebar-post href=/blog/binary-security-mechanisms-relro/><img class=sidebar-post-thumb src=/blog/binary-security-mechanisms-relro/thumbnail.png alt><div class=sidebar-post-info><div class=sidebar-post-label>blog</div><div class=sidebar-post-title>Binary Security Mechanisms: RELRO</div><div class=sidebar-post-date>2026-05-17</div></div></a><a class=sidebar-post href=/writeups/pwn/you-know-0xdiablos-htb/><img class=sidebar-post-thumb src=/writeups/pwn/you-know-0xdiablos-htb/thumbnail.png alt><div class=sidebar-post-info><div class=sidebar-post-label>writeups</div><div class=sidebar-post-title>you-know-0xdiablos - HackTheBox (pwn, Easy)</div><div class=sidebar-post-date>2026-05-13</div></div></a></div></aside></div><footer class=footer><div class=footer-inner><div class=footer-brand><div class=footer-name>pr1meM</div><div class=footer-copy>© 2026 · ctf / pwn / rev</div></div><div class=footer-links><a href=https://github.com/pr1meM target=_blank rel=noopener title=GitHub><svg width="20" height="20" viewBox="0 0 24 24" fill="currentcolor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482.0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943.0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647.0.0.84-.269 2.75 1.025A9.564 9.564.0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683.0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852.0 1.336-.012 2.415-.012 2.743.0.267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+</a><a href=https://www.threads.net/@Pr1meM target=_blank rel=noopener title=Threads><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-3.92 7.94"/></svg></a></div></div></footer><script src=/js/main.js></script></body></html>

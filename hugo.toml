@@ -12,6 +12,12 @@ theme = 'pr1meM'
 
 disableKinds = ["taxonomy", "term"]
 
+[taxonomies]
+
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+
 [pagination]
   pagerSize = 6
 
