@@ -1,7 +1,7 @@
 ---
 title: 'Fuzzing: stack buffer overflow in ticket parser'
 date: 2026-07-09
-description: 'First fuzzing exercise: found and exploited a stack buffer overflow in a custom C program using AFL++ and ASan, hijacking control flow via return address overwrite to reach a win() function. Practiced workflow: harness, crash, exploit dev. On an intentionally vulnerable target before moving to real-world code.'
+description: 'First fuzzing exercise: used AFL++ and ASan to find and exploit a stack buffer overflow in a custom C program, hijacking RIP to reach a win() function.'
 thumbnail: thumbnail.png
 draft: false
 ---
@@ -221,8 +221,6 @@ Then execute:
 ```
 
 which redirects execution to `win()` and spawns a shell.
-
-
 
 ## Impact
 
