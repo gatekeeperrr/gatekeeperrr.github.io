@@ -10,7 +10,10 @@
   {{- $open := or (eq $current.RelPermalink .RelPermalink) ($current.IsDescendant .) }}
   <li>
     <details class="wiki-cat"{{ if $open }} open{{ end }}>
-      <summary class="wiki-cat-title">{{ .Title }}</summary>
+      <summary class="wiki-cat-title">
+        <span class="wiki-cat-chevron"></span>
+        <span class="wiki-cat-label">{{ .Title }}</span>
+      </summary>
       {{ partial "wiki-tree.html" (dict "page" . "current" $current) }}
     </details>
   </li>

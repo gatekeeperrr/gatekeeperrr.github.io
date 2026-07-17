@@ -1,10 +1,14 @@
 {{ define "main" }}
 <div class="md-reader wiki-reader">
+  <div class="wiki-breadcrumb">
+    <a href="/wiki/">wiki</a>
+    <span class="wiki-breadcrumb-sep">/</span>
+    <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
+    <span class="wiki-breadcrumb-sep">/</span>
+    <span class="wiki-breadcrumb-current">{{ .Title }}</span>
+  </div>
   <div class="md-reader-header">
     <div class="md-reader-title">{{ .Title }}</div>
-    <div class="md-reader-meta">
-      <span class="md-reader-cat">{{ .Parent.Title }}</span>
-    </div>
   </div>
   <div class="md">{{ .Content }}</div>
 </div>

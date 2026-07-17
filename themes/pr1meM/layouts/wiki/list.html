@@ -1,4 +1,11 @@
 {{ define "main" }}
+{{ if ne .Parent.Kind "home" }}
+<div class="wiki-breadcrumb">
+  <a href="/wiki/">wiki</a>
+  <span class="wiki-breadcrumb-sep">/</span>
+  <span class="wiki-breadcrumb-current">{{ .Title }}</span>
+</div>
+{{ end }}
 <h2 class="section-title">{{ .Title }}</h2>
 {{ with .Content }}<div class="md wiki-index-body">{{ . }}</div>{{ end }}
 
