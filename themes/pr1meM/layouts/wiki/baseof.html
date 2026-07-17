@@ -9,7 +9,7 @@
     <div class="wiki-nav-top">
       <a class="wiki-nav-title" href="/wiki/">wiki</a>
       <button class="wiki-nav-close" onclick="toggleWikiNav(event)" aria-label="close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
     {{ partial "wiki-tree.html" (dict "page" $wikiRoot "current" .) }}
@@ -17,7 +17,7 @@
   <div class="paper wiki-paper">
     <div class="content">
       <button class="wiki-nav-toggle-btn" onclick="toggleWikiNav(event)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         contents
       </button>
       {{- block "main" . }}{{- end }}
