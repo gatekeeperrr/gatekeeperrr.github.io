@@ -1,10 +1,11 @@
 {{ define "main" }}
 <div class="md-reader wiki-reader">
+  {{ $sep := `<svg class="wiki-icon wiki-breadcrumb-sep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>` }}
   <div class="wiki-breadcrumb">
     <a href="/wiki/">wiki</a>
-    <span class="wiki-breadcrumb-sep">/</span>
+    {{ $sep | safeHTML }}
     <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a>
-    <span class="wiki-breadcrumb-sep">/</span>
+    {{ $sep | safeHTML }}
     <span class="wiki-breadcrumb-current">{{ .Title }}</span>
   </div>
   <div class="md-reader-header">
