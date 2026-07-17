@@ -162,9 +162,10 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 
 /* WIKI */
 .wiki-layout{position:relative;max-width:960px;margin:0 auto;display:flex;align-items:flex-start;background:var(--paper);border-left:1px solid var(--border);border-right:1px solid var(--border);min-height:100vh;}
-.wiki-nav{width:280px;flex-shrink:0;padding:32px 22px 44px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#3a3a3e transparent;background:#232629;border-right:1px solid var(--border);}
-.wiki-nav::-webkit-scrollbar{width:8px;}
-.wiki-nav::-webkit-scrollbar-thumb{background:#3a3a3e;border-radius:4px;}
+.wiki-nav{width:280px;flex-shrink:0;padding:32px 22px 44px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#55555c transparent;background:var(--paper);border-right:1px solid var(--border);}
+.wiki-nav::-webkit-scrollbar{width:10px;}
+.wiki-nav::-webkit-scrollbar-thumb{background:#55555c;border-radius:6px;border:2px solid var(--paper);background-clip:padding-box;}
+.wiki-nav::-webkit-scrollbar-thumb:hover{background:#6a6a72;background-clip:padding-box;}
 .wiki-nav::-webkit-scrollbar-track{background:transparent;}
 .wiki-nav-top{padding-bottom:18px;margin-bottom:22px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
 .wiki-nav-title{font-family:'Inter',sans-serif;font-size:17px;font-weight:600;color:var(--link);text-decoration:none;letter-spacing:-0.01em;}
