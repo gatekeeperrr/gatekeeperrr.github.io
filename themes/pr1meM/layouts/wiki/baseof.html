@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{{- partial "head.html" . -}}</head>
+<body>
+{{- partial "nav.html" . -}}
+{{- $wikiRoot := site.GetPage "/wiki" -}}
+<div class="wiki-layout">
+  <aside class="wiki-nav">
+    <div class="wiki-nav-top">
+      <a class="wiki-nav-title" href="/wiki/">wiki</a>
+      <button class="wiki-nav-close" onclick="toggleWikiNav(event)" aria-label="close menu">&times;</button>
+    </div>
+    {{ partial "wiki-tree.html" (dict "page" $wikiRoot "current" .) }}
+  </aside>
+  <div class="paper wiki-paper">
+    <div class="content">
+      <button class="wiki-nav-toggle-btn" onclick="toggleWikiNav(event)">&#9776; contents</button>
+      {{- block "main" . }}{{- end }}
+    </div>
+  </div>
+</div>
+{{- partial "footer.html" . -}}
+<script src="{{ "js/main.js" | relURL }}"></script>
+</body>
+</html>

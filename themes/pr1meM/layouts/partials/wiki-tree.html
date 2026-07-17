@@ -1,0 +1,18 @@
+{{- $current := .current -}}
+{{- $node := .page -}}
+<ul class="wiki-tree-list">
+  {{- range $node.RegularPages.ByTitle }}
+  <li>
+    <a class="wiki-link{{ if eq $current.RelPermalink .RelPermalink }} active{{ end }}" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  </li>
+  {{- end }}
+  {{- range $node.Sections.ByTitle }}
+  {{- $open := or (eq $current.RelPermalink .RelPermalink) ($current.IsDescendant .) }}
+  <li>
+    <details class="wiki-cat"{{ if $open }} open{{ end }}>
+      <summary class="wiki-cat-title">{{ .Title }}</summary>
+      {{ partial "wiki-tree.html" (dict "page" . "current" $current) }}
+    </details>
+  </li>
+  {{- end }}
+</ul>

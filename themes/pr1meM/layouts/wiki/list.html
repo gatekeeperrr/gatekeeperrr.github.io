@@ -1,0 +1,25 @@
+{{ define "main" }}
+<h2 class="section-title">{{ .Title }}</h2>
+{{ with .Content }}<div class="md wiki-index-body">{{ . }}</div>{{ end }}
+
+{{ with .Sections.ByTitle }}
+<div class="wiki-index-list">
+  {{ range . }}
+  <a class="wiki-index-item" href="{{ .RelPermalink }}">
+    <span class="wiki-index-item-name">{{ .Title }}</span>
+    {{ with .Params.description }}<span class="meta">{{ . }}</span>{{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+
+{{ with .RegularPages.ByTitle }}
+<div class="wiki-index-list">
+  {{ range . }}
+  <a class="wiki-index-item" href="{{ .RelPermalink }}">
+    <span class="wiki-index-item-name">{{ .Title }}</span>
+  </a>
+  {{ end }}
+</div>
+{{ end }}
+{{ end }}
