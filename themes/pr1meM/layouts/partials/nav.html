@@ -28,7 +28,7 @@
       <div class="dropdown-panel">
         <a class="dropdown-item{{ if and (eq $section "writeups") (eq .Kind "section") (eq .Title "Writeups") }} active{{ end }}" href="/writeups/">all</a>
         <a class="dropdown-item" href="/writeups/pwn/">pwn</a>
-        <a class="dropdown-item" href="/writeups/osint/">osint</a>
+        <a class="dropdown-item" href="/writeups/rev/">rev</a>
         <a class="dropdown-item" href="/writeups/malware-analysis/">malware-analysis</a>
       </div>
     </div>
@@ -38,7 +38,5 @@
     <a class="nav-btn{{ if eq $section "tools" }} active-tab{{ end }}" href="/tools/">tools</a>
     <span class="sep">|</span>
     <a class="nav-btn{{ if eq $section "links" }} active-tab{{ end }}" href="/links/">links</a>
-    <span class="sep">|</span>
-    <a class="nav-btn{{ if eq $section "wiki" }} active-tab{{ end }}" href="/wiki/">wiki</a>
   </nav>
 </div>

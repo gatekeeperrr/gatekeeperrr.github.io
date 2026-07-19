@@ -22,8 +22,8 @@ disableKinds = ["taxonomy", "term"]
   pagerSize = 6
 
 [params]
-  description = "Security research, CTF writeups and blog posts on pwn, malware analysis and osint."
-  tagline = "ctf / pwn / rev"
+  description = "Security research, CTF writeups and blog posts on pwn, malware analysis and reverse engineering."
+  tagline = "malware analysis / pwn / rev"
   github = "https://github.com/pr1meM"
   threads = "https://www.threads.net/@Pr1meM"
   giscusRepo       = "pr1meM/blog_comments"

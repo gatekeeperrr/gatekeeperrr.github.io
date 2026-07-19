@@ -124,10 +124,10 @@ collections:
         name: body
         widget: markdown
 
-  - name: writeups-osint
-    label: "Writeups › OSINT"
-    label_singular: "OSINT Writeup"
-    folder: content/writeups/osint
+  - name: writeups-rev
+    label: "Writeups › Rev"
+    label_singular: "Rev Writeup"
+    folder: content/writeups/rev
     create: true
     path: "{{slug}}/index"
     media_folder: ""

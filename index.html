@@ -104,7 +104,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 .md-reader-title{font-family:'Inter',sans-serif;font-size:24px;font-weight:600;color:#e8e8e8;line-height:1.3;margin-bottom:10px;letter-spacing:-0.01em;}
 .md-reader-meta{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
 .md-reader-cat{font-size:11px;font-family:'Inter',sans-serif;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:#666;}
-.md-reader-cat.pwn-lbl,.md-reader-cat.malware-lbl,.md-reader-cat.osint-lbl{color:#666;}
+.md-reader-cat.pwn-lbl,.md-reader-cat.malware-lbl,.md-reader-cat.rev-lbl{color:#666;}
 
 /* Markdown body */
 .md{font-size:15.5px;line-height:1.9;color:#b8b8b8;font-family:'Inter',system-ui,sans-serif;}
@@ -264,7 +264,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
         </a>
       </div>
     </div>
-    <div class="tagline">ctf / pwn / rev</div>
+    <div class="tagline">malware analysis / pwn / rev</div>
   </div>
   <button class="hamburger" onclick="toggleMobileMenu()" aria-label="menu">
     <span></span><span></span><span></span>
@@ -279,7 +279,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
       <div class="dropdown-panel" id="wr-panel">
         <div class="dropdown-item" data-filter="all">all</div>
         <div class="dropdown-item" data-filter="pwn">pwn</div>
-        <div class="dropdown-item" data-filter="osint">osint</div>
+        <div class="dropdown-item" data-filter="rev">rev</div>
         <div class="dropdown-item" data-filter="malware-analysis">malware-analysis</div>
       </div>
     </div>
@@ -398,7 +398,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-name">pr1meM</div>
-      <div class="footer-copy">© 2026 · ctf / pwn / reverse engineering</div>
+      <div class="footer-copy">© 2026 · malware analysis / pwn / reverse engineering</div>
     </div>
     <div class="footer-links">
       <a href="https://github.com/ml0w6c65766c" target="_blank" title="GitHub">
@@ -623,7 +623,7 @@ function getCategory(path){
   const category = getPathCategory(path);
   if(category==='pwn') return {cls:'pwn-lbl',text:'pwn'};
   if(category==='malware-analysis') return {cls:'malware-lbl',text:'malware-analysis'};
-  if(category==='osint') return {cls:'osint-lbl',text:'osint'};
+  if(category==='rev') return {cls:'rev-lbl',text:'rev'};
   return {cls:'',text:'ctf'};
 }
 
@@ -770,7 +770,7 @@ function renderSidebar(containerId, excludePath){
       <div class="sidebar-heading">explore</div>
       <div class="sidebar-tags">
         <span class="sidebar-tag" onclick="setFilter('pwn')">pwn</span>
-        <span class="sidebar-tag" onclick="setFilter('osint')">osint</span>
+        <span class="sidebar-tag" onclick="setFilter('rev')">rev</span>
         <span class="sidebar-tag" onclick="setFilter('malware-analysis')">malware-analysis</span>
         <span class="sidebar-tag" onclick="show('blog')">blog</span>
       </div>
