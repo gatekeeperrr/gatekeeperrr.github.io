@@ -4,7 +4,7 @@ date: 2026-06-02
 description: "A brief explanation of the stack canary and how to bypass it"
 ---
 
-In the previous article we covered RELRO and ASLR + PIE, in this section, we'll focus on the **stack canary.** This is my third post in this short series of articles in which I explain the five most important binary security mechanisms. If you haven't read the other articles yet, you can do so [here](https://pr1mem.xyz/blog/binary-security-mechanisms-pie-aslr/) and [here](https://pr1mem.xyz/blog/binary-security-mechanisms-relro/).
+In the previous article we covered RELRO and ASLR + PIE, in this section, we'll focus on the **stack canary.** This is my third post in this short series of articles in which I explain the five most important binary security mechanisms. If you haven't read the other articles yet, you can do so [here](https://gatekeeperrr.github.io/blog/binary-security-mechanisms-pie-aslr/) and [here](https://gatekeeperrr.github.io/blog/binary-security-mechanisms-relro/).
 
 ## Stack Canary
 
@@ -36,4 +36,4 @@ It's **IMPORTANT** to note that the stack canary only makes attacks slightly mor
 
 
 
-Author: Pr1meM
+Author: gatekeeperr
