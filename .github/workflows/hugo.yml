@@ -65,3 +65,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # First-ever user-site deploy provisions CDN/DNS and can exceed the
+          # default 10 min. Allow up to 30 min before the action aborts.
+          timeout: 1800000
