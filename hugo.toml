@@ -1,7 +1,7 @@
-baseURL = 'https://pr1mem.xyz/'
+baseURL = 'https://gatekeeperrr.github.io/'
 languageCode = 'en-us'
-title = 'pr1meM'
-theme = 'pr1meM'
+title = 'gatekeeperr'
+theme = 'gatekeeperr'
 
 [markup]
   [markup.goldmark.renderer]
@@ -24,9 +24,9 @@ disableKinds = ["taxonomy", "term"]
 [params]
   description = "Security research, CTF writeups and blog posts on pwn, malware analysis and reverse engineering."
   tagline = "malware analysis / pwn / rev"
-  github = "https://github.com/pr1meM"
-  threads = "https://www.threads.net/@Pr1meM"
-  giscusRepo       = "pr1meM/blog_comments"
+  github = "https://github.com/gatekeeperrr"
+  threads = "https://www.threads.net/@gatekeeperr"
+  giscusRepo       = "gatekeeperrr/blog_comments"
   giscusRepoId     = "R_kgDOSfPezw"
   giscusCategory   = "General"
   giscusCategoryId = "DIC_kwDOSfPez84C9L2H"

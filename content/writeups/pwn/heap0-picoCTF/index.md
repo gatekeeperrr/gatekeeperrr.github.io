@@ -235,4 +235,4 @@ As a result, the program detects that `safe_var` has been modified and triggers 
 `picoCTF{FLAG}`
 
 ---
-Author: pr1meM
+Author: gatekeeperr

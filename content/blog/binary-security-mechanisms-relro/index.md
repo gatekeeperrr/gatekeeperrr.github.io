@@ -4,7 +4,7 @@ date: 2026-05-17
 description: "A breakdown of RELRO, what it does, and how it can be bypassed."
 ---
 
-While doing a CTF today, I used my tool [tio](https://github.com/ml0w6c65766c/tio) as usual to check the binary's security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.
+While doing a CTF today, I used my tool [tio](https://github.com/gatekeeperrr/tio) as usual to check the binary's security mechanisms, and I thought I’d take a moment to write a small series of articles explaining what these mechanisms are, what they do, and how they can theoretically be bypassed.
 
 ![checksec](checksec.png)
 
@@ -54,7 +54,7 @@ Therefore, with `%n` you can directly overwrite a GOT entry. For example, if you
 
 
 
-Author: pr1meM
+Author: gatekeeperr
 
 
 

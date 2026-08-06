@@ -6,7 +6,7 @@ description: "HackTheBox easy pwn challenge - ret2win with stack-based buffer ov
 
 ## Initial Recon
 
-First I ran my tool [tio](https://github.com/ml0w6c65766c/tio) to get some basic information about the program.
+First I ran my tool [tio](https://github.com/gatekeeperrr/tio) to get some basic information about the program.
 
 ![recon1](recon1.png)
 
