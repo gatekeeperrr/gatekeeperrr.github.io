@@ -1,5 +1,5 @@
 ---
-title: "claude Code ReDoS Vulnerability (closed as informative)"
+title: "Claude Code ReDoS Vulnerability (closed as informative)"
 date: 2026-08-09
 description: "Bypassable ReDoS guard in the Claude Code security-guidance/hookify plugins lets a user-supplied regex hang the hook via catastrophic backtracking."
 ---
