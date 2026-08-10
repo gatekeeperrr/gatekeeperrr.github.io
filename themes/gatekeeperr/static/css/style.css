@@ -35,6 +35,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 
 /* HOME */
 .home-block{margin-bottom:36px;}
+.about-text{font-size:15px;color:var(--text);line-height:1.7;max-width:640px;margin-top:-6px;}
 .pager{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:20px;border-top:1px solid var(--border);}
 .pager-btn{font-size:13px;color:var(--text);font-family:'Inter',sans-serif;user-select:none;padding:6px 14px;border:1px solid var(--border);border-radius:4px;background:#2e3236;transition:color .15s,border-color .15s,background .15s;}
 .pager-btn:hover{color:var(--link-hover);border-color:var(--link-hover);background:#333a42;}
