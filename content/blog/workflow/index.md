@@ -1,6 +1,8 @@
+---
 title: "The Workflow I Used to Find Bugs in Windows, VirtualBox, and Linux"
 date: 2026-09-10
 description: "A step-by-step breakdown of the workflow I used to find bugs in Windows, VirtualBox, and the Linux kernel."
+---
 
 After spending a decent amount of time learning about security and doing CTFs, I decided to build my own workflow for vulnerability research. It's still far from finished, and I'm constantly testing, changing, and improving it, but I think it's a solid foundation already. Using this workflow, I've found several real-world vulnerabilities in major software (details will follow in separate posts once disclosure is complete).
 
