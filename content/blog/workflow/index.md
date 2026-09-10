@@ -189,4 +189,4 @@ This workflow is a living document. I'm constantly refining it based on what wor
 - Building better automation for Stages 2-4
 - Writing up the vulnerabilities I've found using this workflow (coming after disclosure)
 
-If you have questions or suggestions, reach out to me on [here](https://x.com/gatekeeperr0), [here](https://www.threads.net/@gatekeeperr) or on discord: gatekeeperr0. I'm always looking to improve this process.
+If you have questions or suggestions, reach out to me [here](https://x.com/gatekeeperr0), [here](https://www.threads.net/@gatekeeperr) or on discord: gatekeeperr0. I'm always looking to improve this process.
