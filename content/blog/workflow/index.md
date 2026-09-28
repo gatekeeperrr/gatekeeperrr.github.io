@@ -43,7 +43,7 @@ This is always the first thing I do before diving into any actual research. The 
 - **What programming languages are used?** This tells you what bug classes to expect. A C/C++ codebase has different vulnerability classes than a Java project.
 - **Which libraries and dependencies are used?** Third-party code is attack surface too.
 
-This stage is intentionally lightweight. It's not about finding bugs or reading code — it's about getting a decent overview of the target before going deeper.
+This stage is just for a decent overview.
 
 ## Stage 1b: Reverse Engineering (Optional)
 
