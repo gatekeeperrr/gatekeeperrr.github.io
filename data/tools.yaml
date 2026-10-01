@@ -1,23 +1,23 @@
 - name: seekerr
   url: https://github.com/gatekeeperrr/seeker
-  desc: cybersecurity news aggregator
+  desc: Aggregates cybersecurity news in one place.
 
 - name: tio
   url: https://github.com/gatekeeperrr/tio
-  desc: three-in-one pwn setup tool for binary exploitation CTFs
+  desc: Sets up a three-in-one workspace for binary exploitation CTFs.
 
 - name: m_port_scanner
   url: https://github.com/gatekeeperrr/m_port_scanner
-  desc: tcp port scanner
+  desc: Scans TCP ports to identify open services.
 
 - name: m_keylogger
   url: https://github.com/gatekeeperrr/m_simple_keylogger_in_c
-  desc: keylogger written in C for Linux
+  desc: Demonstrates keyboard input logging on Linux using C.
 
 - name: pwntools_buffer_overflow_script
   url: https://github.com/gatekeeperrr/pwntools_buffer_overflow_script
-  desc: pwntools script for simple buffer overflows
+  desc: Uses pwntools to demonstrate simple buffer overflow exploits.
 
 - name: m_converter
   url: https://github.com/gatekeeperrr/m_converter
-  desc: base converter
+  desc: Converts numbers between bases.
