@@ -117,7 +117,7 @@ h2.section-title{font-family:'Inter',sans-serif;font-size:14px;font-weight:600;c
 
 /* TOOLS / PROJECTS */
 .tool-list{border-top:1px solid var(--border);margin-top:4px;}
-.tool-entry{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
+.tool-entry{display:grid;grid-template-columns:1fr;gap:3px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;}
 .tool-entry:hover .tool-entry-name{color:var(--link-hover);}
 .tool-entry-name{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--link);word-break:break-all;}
 .tool-entry-desc{font-size:14px;color:#666;line-height:1.5;}
