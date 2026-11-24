@@ -1,4 +1,8 @@
-
+---
+title: "Building a C2 Framework from Scratch in C"
+date: 2026-11-24
+description: "How I built Frenzy C2, a custom command and control framework in pure C, from listeners and agents to encryption and beaconing."
+---
 
 
 ## Table of Contents
