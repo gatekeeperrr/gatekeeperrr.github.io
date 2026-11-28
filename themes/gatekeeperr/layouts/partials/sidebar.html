@@ -3,32 +3,15 @@
 {{- $blog := where site.RegularPages "Section" "blog" -}}
 {{- $combined := $writeups | append $blog -}}
 {{- $all := sort $combined "Date" "desc" -}}
-{{- $recent := first 5 (where $all "RelPermalink" "ne" $current.RelPermalink) -}}
-<div class="sidebar-block">
-  <div class="sidebar-heading">explore</div>
-  <div class="sidebar-tags">
-    <a class="sidebar-tag" href="/writeups/pwn/">pwn</a>
-    <a class="sidebar-tag" href="/writeups/rev/">rev</a>
-    <a class="sidebar-tag" href="/writeups/malware-analysis/">malware-analysis</a>
-    <a class="sidebar-tag" href="/blog/">blog</a>
-  </div>
-</div>
+{{- $recent := first 10 (where $all "RelPermalink" "ne" $current.RelPermalink) -}}
+
 {{ if $recent }}
 <div class="sidebar-block">
   <div class="sidebar-heading">recent posts</div>
   {{ range $recent }}
-    {{- $thumb := .Resources.GetMatch "thumbnail*" -}}
     <a class="sidebar-post" href="{{ .RelPermalink }}">
-      {{ if $thumb }}
-      <img class="sidebar-post-thumb" src="{{ $thumb.RelPermalink }}" alt="">
-      {{ else }}
-      <div class="sidebar-post-thumb"></div>
-      {{ end }}
-      <div class="sidebar-post-info">
-        <div class="sidebar-post-label">{{ .Section }}</div>
-        <div class="sidebar-post-title">{{ .Title }}</div>
-        {{ if .Date }}<div class="sidebar-post-date">{{ .Date.Format "2006-01-02" }}</div>{{ end }}
-      </div>
+      {{ if .Date }}<div class="sidebar-post-date">{{ .Date.Format "Jan 2, 2006" }}</div>{{ end }}
+      <div class="sidebar-post-title">{{ .Title }}</div>
     </a>
   {{ end }}
 </div>

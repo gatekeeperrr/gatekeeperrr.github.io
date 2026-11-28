@@ -9,6 +9,10 @@ theme = 'gatekeeperr'
   [markup.highlight]
     style = 'dracula'
     noClasses = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 2
+    ordered = true
 
 disableKinds = ["taxonomy", "term"]
 
@@ -19,13 +23,13 @@ disableKinds = ["taxonomy", "term"]
   priority = 0.5
 
 [pagination]
-  pagerSize = 6
+  pagerSize = 20
 
 [params]
   description = "Security research, CTF writeups and blog posts on pwn, malware analysis and reverse engineering."
-  tagline = "malware analysis / pwn / rev"
+  tagline = "malware / pwn / rev"
   github = "https://github.com/gatekeeperrr"
-  threads = "https://www.threads.net/@gatekeeperr"
+  twitter = "https://x.com/gatekeeperr0"
   giscusRepo       = "gatekeeperrr/blog_comments"
   giscusRepoId     = "R_kgDOSfPezw"
   giscusCategory   = "General"

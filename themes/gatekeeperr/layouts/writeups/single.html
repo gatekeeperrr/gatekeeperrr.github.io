@@ -8,6 +8,12 @@
       <span class="md-reader-byline">{{ site.Title }}{{ if .Date }} · {{ .Date.Format "2006-01-02" }}{{ end }} · {{ .ReadingTime }} min read</span>
     </div>
   </div>
+  {{ if .TableOfContents }}
+  <div class="toc">
+    <div class="toc-heading">Contents</div>
+    {{ .TableOfContents }}
+  </div>
+  {{ end }}
   <div class="md">{{ .Content }}</div>
   {{ partial "giscus.html" . }}
 </div>

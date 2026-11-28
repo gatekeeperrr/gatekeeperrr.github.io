@@ -1,14 +1,8 @@
 - name: github
   url: https://github.com/gatekeeperrr
 
-- name: pwn.college
-  url: https://pwn.college/hacker/163072
+- name: X
+  url: https://x.com/gatekeeperr0
 
-- name: picoctf
-  url: https://play.picoctf.org/users/ml0w6c65766c
-
-- name: hackthebox
-  url: https://profile.hackthebox.com/
-
-- name: threads
-  url: https://threads.net/@gatekeeperr
+- name: mail
+  url: mailto:gatekeeperr0@proton.me

@@ -5,23 +5,6 @@ description: "How I built Frenzy C2, a custom command and control framework in p
 ---
 
 
-## Table of Contents
-
-1. Introduction
-2. Technology Choices
-3. Overview 
-4. Implementation 
-	1. Project Structure
-	2. Listener Management
-	3. Agent Management
-	4. Payload Management
-5. Opsec & Security
-	1. Encryption
-	2. Jitter & Beaconing
-	3. Evasion & Cleanup
-6. Demonstration
-7. Outro
-
 ## Introduction
 
 Hello,
@@ -378,7 +361,7 @@ The HTTP agent looks exactly like the TCP agent, with the difference that in `en
 
 
 
-### Opsec & Security
+## Opsec & Security
 
 Since every C2 framework prioritizes opsec, and since this is an essential part of it ,I’ve tried to incorporate a few features as well. I’m aware that these agents and the framework aren’t yet suitable for real-world operations. But in the future, I’ll be working more on opsec and other features that will make it more suitable. 
 
@@ -448,7 +431,7 @@ void cleanup() {
 
 
 
-### Demonstration
+## Demonstration
 
 Now I will show you a quick demo on a Windows 11 system.
 
@@ -473,7 +456,7 @@ We can see we got a connection now we can interact with the agent:
 I asked the agent if he is alive and he answered with pong, after that I tasked the agent to cleanup.
 
 
-### Conclusion
+## Conclusion
 
 That's it. I hope this article was interesting and you learned something new. I personally learned a lot about Winsock, threading and structuring bigger projects. In the future I want to implement:
 - File Transfer (upload/download)
